@@ -104,7 +104,19 @@ textarea { overflow: auto; }
 
 .post-inner .img-holder { background: url(../images/widget-bg.png) repeat 0 0; padding: 2px; position: relative; display: block; margin-bottom: 14px;  }
 .post-inner .img-holder img { display: block; }
-.post-inner .img-holder a.btn-full-image { display: block; position: absolute; bottom: 11px; right: 5px;  width: 89px; height: 25px; color: #1cfe10; font-size: 10px; line-height: 25px; padding: 0 0px 0 13px; background: url(../images/btn-full-image.png) no-repeat 0 0; }
+.post-inner .img-holder a.btn-full-image {
+    display: block;
+    position: absolute;
+    bottom: 11px;
+    right: 5px;
+    width: 130px;
+    height: 25px;
+    color: #1cfe10;
+    font-size: 10px;
+    line-height: 25px;
+    padding: 0 0px 0 13px;
+    background: url(../images/btn-full-image.png) no-repeat 0 0;
+}
 .post-inner .img-holder a.btn-full-image span { padding-right: 22px; background: url(../images/full-ico.png) no-repeat right 0; }
 .post-inner .img-holder a.btn-full-image:hover { color: #0acc00; text-decoration: none; }
 

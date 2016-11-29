@@ -55,9 +55,28 @@
   background: url(../images/widget-bg.png)
 }
 
+#logo-style{
+  height:55px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-40%, -50%);
+}
 
+#logo-container
+{
+  position: relative;
+  align-content: center;
+  height:80px;
+}
 
-
+.table-seperators tr th,
+.table-seperators tr td{
+  border-left: 2px solid #4D4D4D;
+  border-right: 2px solid #4D4D4D;
+}
 
 
 
