@@ -4,7 +4,6 @@
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
             <!-- sidebar -->
             <aside class="sidebar">
-
                 <!-- Side menu Bootstrap -->
                 <div class="widget">
                     <div class="nav-side-menu">
@@ -39,138 +38,51 @@
 
         <div class="col-lg-10 col-md-9  col-sm-8 col-xs-12">
             <!-- content -->
-            <section class="content">
-                <!-- post -->
-                <div class="post">
-                    <!-- post-inner -->
-                    <div class="post-inner">
-                        <header>
-                            <h2><a href="#">MovieTitle 1 Goes Here</a></h2>
-                            <p class="tags"><a href="#">FAMILY</a> <a href="#">COMEDY</a> <a href="#">ANIMATION</a> </p>
-                            <div class="cl">&nbsp;</div>
-                        </header>
-                        <div class="img-holder">
-                            <a href="#"><img class="post-Image-link" src="images/post-img.jpg" alt="" /></a>
-                            <a href="images/post-img.jpg" class="btn-full-image popup group1"><span>FULL IMAGE</span></a>
-                        </div>
-
-                        <!-- meta -->
-                        <div class="meta">
-                            <p class="date">APRIL 09, 2012 by <a href="#">JOHN DOE</a></p>
-                            <div class="right">
-                                <div class="rating-holder">
-                                    <p>RATING</p>
-                                    <div class="rating">
-                                        <span style="width: 100%;"></span>
-                                    </div>
+            <section class="content pull-left">
+                {{#each movies}}
+                    <div class="post">
+                        <!-- post-inner -->
+                        <article>
+                            <div class="post-inner">
+                                <header>
+                                    <h2><a href="#">{{ this.title }}</a></h2>
+                                    <p class="tags">{{#each this.tags}}<a href="#">{{this.name}}</a>{{/each}}</p>
+                                    <div class="cl">&nbsp;</div>
+                                </header>
+                                <div class="img-holder">
+                                    <a href="#"><img class="post-Image-link" src="/images/post-img2.jpg" alt="" /></a>
+                                    <a href="/images/post-img2.jpg" class="btn-full-image popup group1"><span>FULL IMAGE</span></a>
                                 </div>
-                                <a href="#" class="comments">59 comments</a>
-                            </div>
-                            <div class="cl">&nbsp;</div>
-                        </div>
-                        <!-- end of meta -->
-                        <!-- post-cnt -->
-                        <div class="post-cnt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo orci vitae enim volutpat dapibus. Aliquam pharetra, odio eu luctus semper, dolor libero volutpat mi, sit amet convallis tortor justo eu nisl. Cras quis felis quis felis tempor volutpat id at dui. Donec vel turpis id odio tempus mollis quis vel justo. Etiam tortor nisi, pulvinar a mattis nec, luctus sit amet odio. Morbi id commodo ligula. </p>
-                            <a href="#" class="more">CONTINUE READING</a>
-                        </div>
-                        <!-- end of post-cnt -->
-                    </div>
-                    <!-- post-inner -->
-                </div>
-                <!-- end of post -->
-                <!-- post -->
-                <div class="post">
-                    <!-- post-inner -->
-                    <div class="post-inner">
-                        <header>
-                            <h2><a href="#">MovieTitle 2 Goes Here</a></h2>
-                            <p class="tags"><a href="#">FAMILY</a> <a href="#">COMEDY</a> <a href="#">ANIMATION</a> </p>
-                            <div class="cl">&nbsp;</div>
-                        </header>
-                        <div class="img-holder">
-                            <a href="#"><img class="post-Image-link" src="images/post-img2.jpg" alt="" /></a>
-                            <a href="images/post-img2.jpg" class="btn-full-image popup"><span>FULL IMAGE</span></a>
-                        </div>
-
-                        <!-- meta -->
-                        <div class="meta">
-                            <p class="date">APRIL 09, 2012 by <a href="#">JOHN DOE</a></p>
-                            <div class="right">
-                                <div class="rating-holder">
-                                    <p>RATING</p>
-                                    <div class="rating">
-                                        <span style="width: 50%;"></span>
+                                <!-- meta -->
+                                <div class="meta">
+                                    <p class="date">(TODO:add date!) APRIL 09, 2012 BY  <a href="#">{{ this.author.fullName }}</a></p>
+                                    <div class="right">
+                                        <div class="rating-holder">
+                                            <p>RATING</p>
+                                            <div class="rating">
+                                                <span style="width: 100%;"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="comments">59 comments</a>
                                     </div>
+                                    <div class="cl">&nbsp;</div>
                                 </div>
-                                <a href="#" class="comments">59 comments</a>
-                            </div>
-                            <div class="cl">&nbsp;</div>
-                        </div>
-                        <!-- end of meta -->
-                        <!-- post-cnt -->
-                        <div class="post-cnt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo orci vitae enim volutpat dapibus. Aliquam pharetra, odio eu luctus semper, dolor libero volutpat mi, sit amet convallis tortor justo eu nisl. Cras quis felis quis felis tempor volutpat id at dui. Donec vel turpis id odio tempus mollis quis vel justo. Etiam tortor nisi, pulvinar a mattis nec, luctus sit amet odio. Morbi id commodo ligula. </p>
-                            <a href="#" class="more">CONTINUE READING</a>
-                        </div>
-                        <!-- end of post-cnt -->
-                    </div>
-                    <!-- post-inner -->
-                </div>
-                <!-- end of post -->
-                <!-- post -->
-                <div class="post">
-                    <!-- post-inner -->
-                    <div class="post-inner">
-                        <header>
-                            <h2><a href="#">MovieTitle 3 Goes Here</a></h2>
-                            <p class="tags"><a href="#">FAMILY</a> <a href="#">COMEDY</a> <a href="#">ANIMATION</a> </p>
-                            <div class="cl">&nbsp;</div>
-                        </header>
-                        <div class="img-holder">
-                            <a href="#"><img class="post-Image-link" src="images/post-img3.jpg" alt="" /></a>
-                            <a href="images/post-img3.jpg" class="btn-full-image popup"><span>FULL IMAGE</span></a>
-                        </div>
+                                <!-- end of meta -->
+                                <!-- post-cnt -->
+                                <div class="post-cnt">
+                                    <p>{{ this.content }}</p>
+                                    <p>(TODO: Limit words)</p>
+                                </div>
 
-                        <!-- meta -->
-                        <div class="meta">
-                            <p class="date">APRIL 09, 2012 by <a href="#">JOHN DOE</a></p>
-                            <div class="right">
-                                <div class="rating-holder">
-                                    <p>RATING</p>
-                                    <div class="rating">
-                                        <span style="width: 70%;"></span>
-                                    </div>
-                                </div>
-                                <a href="#" class="comments">59 comments</a>
+                                <footer class="">
+                                    <a class="btn btn-default btn-xs" href="/movie/details/{{this.id}}">Read more &raquo;</a>
+                                </footer>
+                                <!-- end of post-cnt -->
                             </div>
-                            <div class="cl">&nbsp;</div>
-                        </div>
-                        <!-- end of meta -->
-                        <!-- post-cnt -->
-                        <div class="post-cnt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo orci vitae enim volutpat dapibus. Aliquam pharetra, odio eu luctus semper, dolor libero volutpat mi, sit amet convallis tortor justo eu nisl. Cras quis felis quis felis tempor volutpat id at dui. Donec vel turpis id odio tempus mollis quis vel justo. Etiam tortor nisi, pulvinar a mattis nec, luctus sit amet odio. Morbi id commodo ligula. </p>
-                            <a href="#" class="more">CONTINUE READING</a>
-                        </div>
-                        <!-- end of post-cnt -->
+                            <!-- post-inner -->
+                        </article>
                     </div>
-                    <!-- post-inner -->
-                </div>
-                <!-- end of post -->
-                <div class="pagination">
-                    <ul>
-                        <li class="laquo"><a href="#"><span></span></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li class="raquo"><a href="#"><span></span></a></li>
-                        <li><a href="#">10</a></li>
-                        <li class="dots">. . .</li>
-                        <li><a href="#">last</a></li>
-                    </ul>
-                </div>
+                {{/each}}
             </section>
             <!-- end of content -->
         </div>

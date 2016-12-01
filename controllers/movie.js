@@ -22,7 +22,7 @@ module.exports = {
 
         let errorMsg = '';
         if (!req.isAuthenticated()) {
-            errorMsg = 'You should be logged to make Movies';
+            errorMsg = 'You should be logged to add new Movie';
         } else if (!MovieData.title) {
             errorMsg = 'Invalid Title';
         } else if (!MovieData.content) {

@@ -4,10 +4,12 @@ module.exports = {
     development: {
         rootFolder: path.normalize(path.join(__dirname, '/../')),
         connectionString: 'mongodb://localhost:27017/FilmCatalog',
-        seedCategories: true
+        seedCategories: true,
+        homePostLimit: 5
     },
     production:{}
 };
+module.exports.env = "development";
 
 
 
