@@ -1,4 +1,4 @@
-const Article = require('mongoose').model('Article');
+const Article = require('mongoose').model('Movie');
 const Tag = require('mongoose').model('Tag');
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
         Tag.findOne({name: name}).then(tag => {
             Article.find({tags: tag.id}).populate('author tags')
                 .then(articles => {
-                    res.render('tag/details', {articles: articles, tag: tag});
+                    res.render('tag/details', {movies: articles, tag: tag});
                 })
         })
     }

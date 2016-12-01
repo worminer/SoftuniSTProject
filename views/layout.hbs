@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 ">
                 <div class="" id="logo-container">
-                    <a href="/" class="navbar-brand brand-name" ><img src="images/BEMPTVLogo.png" id="logo-style" alt=""></a>
+                    <a href="/" class="navbar-brand brand-name" ><img src="/images/BEMPTVLogo.png" id="logo-style" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
@@ -65,9 +65,9 @@
                                             <li><a href="/admin/category/all">Categories</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="/movie/create">Add New Movie</a></li>
                                 {{/if}}
-                                <li><a href="/user/details">Welcome({{user.email}})</a></li>
-                                <li><a href="/article/create">New Article</a></li>
+                                <li><a href="/user/details">Welcome({{user.fullName}})</a></li>
                                 <li><a href="/user/logout">Logout</a></li>
                             </ul>
                         </div>

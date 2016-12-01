@@ -7,7 +7,7 @@ let userSchema = mongoose.Schema(
         email: {type: String, required: true, unique: true},
         passwordHash: {type: String, required: true},
         fullName: {type: String, required: true},
-        articles: {type: [mongoose.Schema.Types.ObjectId], ref: 'Article'},
+        movies: {type: [mongoose.Schema.Types.ObjectId], ref: 'Movie'},
         roles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Role'}],
         salt: {type: String, required: true}
     }
@@ -20,12 +20,12 @@ userSchema.method({
 
         return isSamePasswordHash;
     },
-    isAuthor: function (article) {
-        if (!article) {
+    isAuthor: function (movie) {
+        if (!movie) {
             return false;
         }
 
-        let isAuthor = article.author.equals(this.id);
+        let isAuthor = movie.author.equals(this.id);
         return isAuthor;
     },
     isInRole: function (roleName) {
@@ -46,11 +46,11 @@ userSchema.method({
             })
         }
 
-        let Article = mongoose.model('Article');
-        for (let article of this.articles) {
-            Article.findById(article).then(article => {
-                article.prepareDelete();
-                article.remove();
+        let Movie = mongoose.model('Movie');
+        for (let movie of this.movies) {
+            Movie.findById(movie).then(movie => {
+                movie.prepareDelete();
+                movie.remove();
             })
         }
     },
@@ -84,7 +84,7 @@ module.exports.seedAdmin = () => {
                     email: email,
                     passwordHash: passwordHash,
                     fullName: 'Admin',
-                    articles: [],
+                    movies: [],
                     salt: salt,
                     roles: roles
                 };
