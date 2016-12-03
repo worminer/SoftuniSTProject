@@ -93,4 +93,4 @@ fabric.properties
 # *.ipr 
 
 ### MongoDb
-.lock
+*.lock
