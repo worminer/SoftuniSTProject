@@ -8,7 +8,7 @@ module.exports = {
     index: (req, res) => {
         Category.find({}).then(categories => {
             Movie.find({}).limit(config[config.env].homePostLimit).populate('category').populate('author').populate('tags').then(movies => {
-                console.log(movies)
+
                 res.render('home/index', {
                     categories: categories,
                     movies:movies

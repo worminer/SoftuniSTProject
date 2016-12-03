@@ -70,6 +70,8 @@
   position: relative;
   align-content: center;
   height:80px;
+  padding-left: 1px;
+  padding-right: 1px;
 }
 
 .table-seperators tr th,
@@ -78,11 +80,23 @@
   border-right: 2px solid #4D4D4D;
 }
 
+.padding-right-0
+{
+  padding-right: 0;
+}
+.padding-right-x
+{
+  padding-right: 0;
+}
 
+#navigation
+{
+mar
+}
 
-
-
-
+.width-100percent {
+  width: 100%;
+}
 
 
 /* sidebar bootstrap style */
