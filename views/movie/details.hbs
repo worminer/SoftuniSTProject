@@ -1,25 +1,53 @@
 <div class="container body-content">
     <div class="row">
         <div class="col-md-12">
-            <article>
-                <header><h2>{{article.title}}</h2></header>
-                <p> {{article.content}} </p>
-                <small class="author"> {{article.author.fullName}} </small>
-                <footer>
-                    <div class="pull-left">
-                        {{# each article.tags}}
-                            <a class="btn btn-default btn-xs" href="/tag/{{this.name}}">{{ this.name }}</a>
-                        {{/each}}
-                    </div>
-                    <div class="pull-right">
-                        {{#if isUserAuthorized}}
-                            <a class="btn btn-success btn-xs" href="/article/edit/{{article.id}}">Edit &raquo;</a>
-                            <a class="btn btn-danger btn-xs" href="/article/delete/{{article.id}}">Delete &raquo;</a>
-                        {{/if}}
-                        <a class="btn btn-default btn-xs" href="/">Back &raquo;</a>
-                    </div>
-                </footer>
-            </article>
+            <movie>
+                <div class="post">
+                    <!-- post-inner -->
+                    <article>
+                        <div class="post-inner">
+                            <header>
+                                <h2><a href="#">{{ movie.title }}</a></h2>
+                                <p class="tags">{{#each movie.tags}}<a href="#">{{this.name}}</a>{{/each}}</p>
+                                <div class="cl">&nbsp;</div>
+                            </header>
+                            <div class="img-holder">
+                                <a href="#"><img class="post-Image-link" src="/images/post-img2.jpg" alt="" /></a>
+                                <a href="/images/post-img2.jpg" class="btn-full-image popup group1"><span>FULL IMAGE</span></a>
+                            </div>
+                            <!-- meta -->
+                            <div class="meta">
+                                <p class="date">(TODO:add date!) APRIL 09, 2012 BY  <a href="#">{{ movie.author.fullName }}</a></p>
+                                <div class="right">
+                                    <div class="rating-holder">
+                                        <p>RATING</p>
+                                        <div class="rating">
+                                            <span style="width: 100%;"></span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="comments">59 comments</a>
+                                </div>
+                                <div class="cl">&nbsp;</div>
+                            </div>
+                            <!-- end of meta -->
+                            <!-- post-cnt -->
+                            <div class="post-cnt">
+                                <p>{{ movie.content }}</p>
+                            </div>
+
+                            <footer>
+                                {{#if isUserAuthorized}}
+                                    <a class="btn btn-success btn-xs" href="/movie/edit/{{movie.id}}">Edit &raquo;</a>
+                                    <a class="btn btn-danger btn-xs" href="/movie/delete/{{movie.id}}">Delete &raquo;</a>
+                                {{/if}}
+                                <a class="btn btn-default btn-xs" href="/">Back &raquo;</a>
+                            </footer>
+                            <!-- end of post-cnt -->
+                        </div>
+                        <!-- post-inner -->
+                    </article>
+                </div>
+            </movie>
         </div>
     </div>
 </div>

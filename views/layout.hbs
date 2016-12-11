@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SoftUni Blog</title>
+    <title>
+        {{site.title}}
+        {{#if subTitle }}
+            {{site.titleSeparator}}
+            {{subTitle}}
+        {{/if}}
+    </title>
 
     <!-- Bootstrap required CSS -->
     <!--<link rel='stylesheet' href='/stylesheets/bootstrapDefault.css'/> -->

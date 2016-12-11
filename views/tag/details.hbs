@@ -1,28 +1,54 @@
 <div class="container body-content">
-    <h1 style="color: red;text-align: center">Searching by tag - {{ tag.name }}</h1>
     <div class="row">
-        {{#each articles}}
-            <div class="col-md-12">
-                <article>
-                    <header>
-                        <h2>{{ this.title }}</h2>
-                    </header>
-                    <p>
-                        {{ this.content }}
-                    </p>
-                    <p>
-                        {{#each this.tags }}
-                            <a class="btn btn-default btn-xs" href="/tag/{{this.name}}">{{ this.name }}</a>
-                        {{/each}}
-                    </p>
-                    <small class="author"> {{ article.author.fullName }} </small>
-                    <footer>
-                        <div class="pull-right">
-                            <a class="btn btn-default btn-xs" href="/article/details/{{this.id}}">Read more &raquo;</a>
+        <div class="col-md-12">
+            <h1 style="color: red;text-align: center">All movies with tag - {{ tag.name }}</h1>
+            {{#each movies}}
+                <div class="post">
+                    <!-- post-inner -->
+                    <article>
+                        <div class="post-inner">
+                            <header>
+                                <h2><a href="#">{{ this.title }}</a></h2>
+                                <p class="tags">{{#each this.tags}}<a href="/tag/{{this.name}}">{{this.name}}</a>{{/each}}</p>
+                                <div class="cl">&nbsp;</div>
+                            </header>
+                            <div class="img-holder">
+                                <a href="#"><img class="post-Image-link" src="/images/post-img2.jpg" alt="" /></a>
+                                <a href="/images/post-img2.jpg" class="btn-full-image popup group1"><span>FULL IMAGE</span></a>
+                            </div>
+                            <!-- meta -->
+                            <div class="meta">
+                                <p class="date">(TODO:add date!) APRIL 09, 2012 BY  <a href="#">{{ this.author.fullName }}</a></p>
+                                <div class="right">
+                                    <div class="rating-holder">
+                                        <p>RATING</p>
+                                        <div class="rating">
+                                            <span style="width: 100%;"></span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="comments">59 comments</a>
+                                </div>
+                                <div class="cl">&nbsp;</div>
+                            </div>
+                            <!-- end of meta -->
+                            <!-- post-cnt -->
+                            <div class="post-cnt">
+                                <p>{{ this.content }}</p>
+                                <p>(TODO: Limit words)</p>
+                            </div>
+
+                            <footer class="">
+                                <a class="btn btn-default btn-xs" href="/movie/details/{{this.id}}">Read more &raquo;</a>
+                            </footer>
+                            <!-- end of post-cnt -->
                         </div>
-                    </footer>
-                </article>
+                        <!-- post-inner -->
+                    </article>
+                </div>
+            {{/ each}}
+            <div>
+                <h1>TODO:Pagination!!!</h1>
             </div>
-        {{/ each}}
+        </div>
     </div>
 </div>

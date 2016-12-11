@@ -13,7 +13,10 @@ module.exports = {
         }
 
         Category.find({}).then(categories => {
-            res.render('movie/create', {categories: categories});
+            res.render('movie/create', {
+                subTitle: 'Add new Movie!',
+                categories: categories
+            });
         });
     },
 
@@ -37,13 +40,13 @@ module.exports = {
         MovieData.author = req.user.id;
         MovieData.tags = [];
 
-        Movie.create(MovieData).then(Movie => {
+        Movie.create(MovieData).then(movie => {
             let tagNames = MovieData.tagNames.split(/\s+|,/).filter(tag => {
                 return tag
             });
-            initializeTags(tagNames, Movie.id);
+            initializeTags(tagNames, movie.id);
 
-            Movie.prepareInsert();
+            movie.prepareInsert();
             res.redirect('/');
         })
     },
@@ -51,16 +54,27 @@ module.exports = {
     details: (req, res) => {
         let id = req.params.id;
 
-        Movie.findById(id).populate('author tags').then(Movie => {
+        Movie.findById(id).populate('tags').then(movie => {
+
+            let subTitle = 'Details for ' + movie.title + ' Movie. ';
+
             if (!req.user) {
-                res.render('movie/details', {Movie: Movie, isUserAuthorized: false});
+                res.render('movie/details', {
+                    subTitle: subTitle,
+                    movie: movie,
+                    isUserAuthorized: false}
+                    );
                 return;
             }
 
             req.user.isInRole('Admin').then(isAdmin => {
-                let isUserAuthorized = isAdmin || req.user.isAuthor(Movie);
+                let isUserAuthorized = isAdmin || req.user.isAuthor(movie);
 
-                res.render('movie/details', {Movie: Movie, isUserAuthorized: isUserAuthorized});
+                res.render('movie/details', {
+                    subTitle: subTitle,
+                    movie: movie,
+                    isUserAuthorized: isUserAuthorized
+                });
             })
         })
     },
@@ -76,25 +90,29 @@ module.exports = {
             return;
         }
 
-        Movie.findById(id).populate('tags').then(Movie => {
+        Movie.findById(id).populate('tags').then(movie => {
             req.user.isInRole('Admin').then(isAdmin => {
-                if (!isAdmin && !req.user.isAuthor(Movie)) {
+                if (!isAdmin && !req.user.isAuthor(movie)) {
                     res.redirect('/');
                     return;
                 }
                 Category.find({}).then(categories => {
-                    Movie.categories = categories;
-                    Movie.tagNames = Movie.tags.map(tag => {
+                    movie.categories = categories;
+                    movie.tagNames = movie.tags.map(tag => {
                         return tag.name
                     });
 
-                    res.render('movie/edit', Movie);
+                    res.render('movie/edit',{
+                        subTitle: 'Edit the information for ' + movie.title + ' Movie.',
+                        movie:movie
+                    });
                 });
             });
         })
     },
 
     editPost: (req, res) => {
+
         let id = req.params.id;
 
         let MovieArgs = req.body;
@@ -109,40 +127,40 @@ module.exports = {
         if (errorMsg) {
             res.render('movie/edit', {error: errorMsg});
         } else {
-            Movie.findById(id).populate('category tags').then(Movie => {
-                if (Movie.category.id !== MovieArgs.category) {
-                    Movie.category.movies.remove(Movie.id);
-                    Movie.category.save();
+            Movie.findById(id).populate('category tags').then(movie => {
+                if (movie.category.id !== MovieArgs.category) {
+                    movie.category.movies.remove(movie.id);
+                    movie.category.save();
                 }
 
-                Movie.category = MovieArgs.category;
-                Movie.title = MovieArgs.title;
-                Movie.content = MovieArgs.content;
+                movie.category = MovieArgs.category;
+                movie.title = MovieArgs.title;
+                movie.content = MovieArgs.content;
 
                 let newTagNames = MovieArgs.tags.split(/\s+|,/).filter(tag => {
                     return tag
                 });
 
-                let oldTags = Movie.tags
+                let oldTags = movie.tags
                     .filter(tag => {
                         return newTagNames.indexOf(tag.name) === -1;
                     });
 
                 for (let tag of oldTags) {
-                    tag.deleteMovie(Movie.id);
-                    Movie.deleteTag(tag.id);
+                    tag.deleteMovie(movie.id);
+                    movie.deleteTag(tag.id);
                 }
 
-                initializeTags(newTagNames, Movie.id);
+                initializeTags(newTagNames, movie.id);
 
-                Movie.save((err) => {
+                movie.save((err) => {
                     if (err) {
                         console.log(err.message);
                     }
 
-                    Category.findById(Movie.category).then(category => {
-                        if (category.movies.indexOf(Movie.id) === -1) {
-                            category.movies.push(Movie.id);
+                    Category.findById(movie.category).then(category => {
+                        if (category.movies.indexOf(movie.id) === -1) {
+                            category.movies.push(movie.id);
                             category.save();
                         }
 
@@ -163,20 +181,23 @@ module.exports = {
             res.redirect('/user/login');
         }
 
-        Movie.findById(id).populate('category tags').then(Movie => {
+        Movie.findById(id).populate('category tags').then(movie => {
             req.user.isInRole('Admin').then(isAdmin => {
-                if (!isAdmin && !req.user.isAuthor(Movie)) {
+                if (!isAdmin && !req.user.isAuthor(movie)) {
                     res.redirect('/');
                     return;
                 }
 
-                Category.findById(Movie.category).then(category => {
-                    Movie.category = category;
-                    Movie.tagNames = Movie.tags.map(tag => {
+                Category.findById(movie.category).then(category => {
+                    movie.category = category;
+                    movie.tagNames = movie.tags.map(tag => {
                         return tag.name
                     });
 
-                    res.render('movie/delete', Movie);
+                    res.render('movie/delete', {
+                        subTitle: 'Delete ' + movie.title + ' Movie.',
+                        movie: movie
+                    });
                 });
             })
         })

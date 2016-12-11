@@ -1,7 +1,7 @@
 <!-- Side menu and Content-->
 <div class="container">
-        <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 padding-right-0">
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
             <!-- sidebar -->
             <aside class="sidebar">
                 <!-- Side menu Bootstrap -->
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="menu-list">
-                            <ul id="menu-content" class="menu-content collapse out">
+                            <ul id="menu-content" class="menu-content collapse overide-width-md">
                                 {{#each categories}}
                                 <li>
                                     <a href="/category/{{ this.id }}" class="hoverbuble">{{ this.name }}  <span>{{ this.movies.length }}</span></a>
@@ -35,7 +35,6 @@
             </aside>
             <!-- end of sidebar -->
         </div>
-
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
             <!-- content -->
             <section class="content">
@@ -46,7 +45,7 @@
                             <div class="post-inner">
                                 <header>
                                     <h2><a href="#">{{ this.title }}</a></h2>
-                                    <p class="tags">{{#each this.tags}}<a href="#">{{this.name}}</a>{{/each}}</p>
+                                    <p class="tags">{{#each this.tags}}<a href="/tag/{{this.name}}">{{this.name}}</a>{{/each}}</p>
                                     <div class="cl">&nbsp;</div>
                                 </header>
                                 <div class="img-holder">
@@ -85,6 +84,10 @@
                 {{/each}}
             </section>
             <!-- end of content -->
+            <div>
+                <h1>TODO:Pagination!!!</h1>
+            </div>
         </div>
+
     </div>
 </div>

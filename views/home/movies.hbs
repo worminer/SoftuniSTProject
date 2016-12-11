@@ -1,7 +1,7 @@
 <!-- Side menu and Content-->
 <div class="container">
     <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 padding-right-0">
             <!-- sidebar -->
             <aside class="sidebar">
 
@@ -37,9 +37,9 @@
             <!-- end of sidebar -->
         </div>
 
-        <div class="col-lg-10 col-md-9  col-sm-8 col-xs-12">
+        <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
             <!-- content -->
-            <section class="content pull-left">
+            <section class="content">
                 {{#each movies}}
                     <div class="post">
                         <!-- post-inner -->
@@ -47,7 +47,7 @@
                             <div class="post-inner">
                                 <header>
                                     <h2><a href="#">{{ this.title }}</a></h2>
-                                    <p class="tags">{{#each this.tags}}<a href="#">{{this.name}}</a>{{/each}}</p>
+                                    <p class="tags">{{#each this.tags}}<a href="/tag/{{this.name}}">{{this.name}}</a>{{/each}}</p>
                                     <div class="cl">&nbsp;</div>
                                 </header>
                                 <div class="img-holder">
@@ -80,12 +80,15 @@
                                 </footer>
                                 <!-- end of post-cnt -->
                             </div>
-                        <!-- post-inner -->
+                            <!-- post-inner -->
                         </article>
                     </div>
                 {{/each}}
             </section>
             <!-- end of content -->
+            <div>
+                <h1>TODO:Pagination!!!</h1>
+            </div>
         </div>
     </div>
 </div>

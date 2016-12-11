@@ -22,7 +22,6 @@ module.exports = (config) => {
     } else {
         require('./../models/Category')
     }
-
     require('./../models/Movie');
     require('./../models/Tag');
 };

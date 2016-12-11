@@ -16,7 +16,7 @@ module.exports = (app) => {
 
     app.get('/user/logout', userController.logout);
 
-    app.get('/tag/:name', tagController.lisArticlesByTag);
+    app.get('/tag/:name', tagController.lisMoviesByTag);
 
     app.get('/movie/details/:id', movieController.details);
 
