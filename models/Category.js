@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 let categorySchema = mongoose.Schema({
     name: {type: String, required: true, unique: true},
@@ -16,6 +17,7 @@ categorySchema.method({
         }
     }
 });
+categorySchema.plugin(mongoosePaginate);
 
 categorySchema.set('versionKey', false);
 

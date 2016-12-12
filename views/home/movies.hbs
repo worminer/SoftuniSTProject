@@ -1,7 +1,7 @@
 <!-- Side menu and Content-->
 <div class="container">
     <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 padding-right-0">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 padding-right-0">
             <!-- sidebar -->
             <aside class="sidebar">
 
@@ -36,7 +36,6 @@
             </aside>
             <!-- end of sidebar -->
         </div>
-
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
             <!-- content -->
             <section class="content">
@@ -86,9 +85,31 @@
                 {{/each}}
             </section>
             <!-- end of content -->
-            <div>
-                <h1>TODO:Pagination!!!</h1>
-            </div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <div class="row center-content">
+        <div class="pagination col-md-12 ">
+            <ul>
+                {{#unless paginationInfo.isOnFistPage}}
+                    <li class="laquo"><a href="/category/{{categoryId}}/{{paginationInfo.previousPage}}"><span></span></a></li>
+                {{/unless}}
+
+
+                {{#each paginationInfo.pagesArr }}
+
+                    <li  {{#equal this ../paginationInfo.currentPage}}class="active"{{/equal}} ><a href="/category/{{../categoryId}}/{{this}}">{{this}}</a></li>
+                {{/each}}
+
+                {{#unless paginationInfo.isOnLastPage}}
+                    <li class="raquo"><a href="/category/{{categoryId}}/{{paginationInfo.nextPage }}"><span></span></a></li>
+                    <li class="dots">. . .</li>
+                    <li><a href="/category/{{categoryId}}/{{paginationInfo.pages }}">last page({{paginationInfo.pages}})</a></li>
+                {{/unless}}
+
+            </ul>
         </div>
     </div>
 </div>

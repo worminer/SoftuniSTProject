@@ -14,8 +14,19 @@ if(this.env == "development") {
             titleSeparator: ' - '
         },
 
-        homeConfig:{ // config for homeController
+        paginationOptions: { // Global options for the pagination
+
+        },
+
+        homeConfig:{ // config for homeController / index
             postLimit: 5 // limits the posts in the homepage
+        },
+        categoriesConfig:{ // config for homeController / listCategoryMovies
+            postLimit: 1 // limits the posts in the listCategoryMovies
+        }
+        ,
+        tagConfig:{ // config for tagController / lisMoviesByTag
+            postLimit: 1 // limits the posts in the lisMoviesByTag
         }
 
     }

@@ -3,10 +3,14 @@ const adminController = require('./../controllers/admin/admin');
 const userController = require('./../controllers/user');
 const movieController = require('./../controllers/movie');
 const tagController = require('./../controllers/tag');
+var paginate = require('express-paginate');
 
 module.exports = (app) => {
+    app.use(paginate.middleware(10, 50));
     app.get('/', homeController.index);
+
     app.get('/category/:id', homeController.listCategoryMovies);
+    app.get('/category/:id/:page', homeController.listCategoryMovies);
 
     app.get('/user/register', userController.registerGet);
     app.post('/user/register', userController.registerPost);
@@ -17,6 +21,7 @@ module.exports = (app) => {
     app.get('/user/logout', userController.logout);
 
     app.get('/tag/:name', tagController.lisMoviesByTag);
+    app.get('/tag/:name/:page', tagController.lisMoviesByTag);
 
     app.get('/movie/details/:id', movieController.details);
 

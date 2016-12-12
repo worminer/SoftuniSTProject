@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
-let MovieSchema = mongoose.Schema(
+let movieSchema = mongoose.Schema(
     {
         title: {type: String, required: true},
         content: {type: String, required: true},
@@ -10,7 +11,9 @@ let MovieSchema = mongoose.Schema(
         date: {type: Date, default: Date.now()}
     });
 
-MovieSchema.method({
+movieSchema.plugin(mongoosePaginate);
+
+movieSchema.method({
     prepareInsert: function () {
         let User = mongoose.model('User');
         User.findById(this.author).then(user => {
@@ -69,5 +72,5 @@ MovieSchema.method({
     }
 });
 
-const Movie = mongoose.model('Movie', MovieSchema);
+const Movie = mongoose.model('Movie', movieSchema);
 module.exports = Movie;

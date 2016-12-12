@@ -78,8 +78,15 @@
   max-width: 100%;
 }
 
-
-
+.center-content {
+  display:inline-block;
+  position:relative;
+  left:50%;
+}
+.center-content > div {
+  position:relative;
+  left:-50%;
+}
 /* sidebar bootstrap style */
 
 .nav-side-menu .toggle-btn {
