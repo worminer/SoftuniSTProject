@@ -10,6 +10,15 @@ module.exports = {
         })
     },
 
+    contact:(req, res) =>{
+        res.render('home/contact');
+    },
+    about:(req, res) =>{
+        res.render('home/about');
+    },
+
+
+
     listCategoryArticles: (req, res) => {
         let id = req.params.id;
 

@@ -27,20 +27,25 @@
 </head>
 <body>
 <header>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-right">
-                    <p>TODO:add social icons :)</p>
+                        <a href="http://facebook.com/" class="facebook-ico"><span></span>Facebook</a>
+                        <a href="http://twitter.com" class="twitter-ico"><span></span>Twitter</a>
+                        <a href="http://Linkedin.com" class="linkedin-ico"><span></span>Linkedin</a>
+                </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 ">
                 <div class="" id="logo-container">
-                    <a href="/" class="navbar-brand brand-name" ><img src="images/BEMPTVLogo.png" id="logo-style" alt=""></a>
+                    <a href="/" class="navbar-brand brand-name" ><img src="/images/BEMPTVLogo.png" id="logo-style" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
@@ -66,9 +71,13 @@
                                         </ul>
                                     </li>
                                 {{/if}}
+
                                 <li><a href="/user/details">Welcome({{user.email}})</a></li>
                                 <li><a href="/article/create">New Article</a></li>
+                                <li><a href="/home/contact">Contact us</a></li>
+                                <li><a href="/home/about">About</a></li>
                                 <li><a href="/user/logout">Logout</a></li>
+
                             </ul>
                         </div>
                     {{/if}}
@@ -77,6 +86,9 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="/user/register">Register</a></li>
                                 <li><a href="/user/login">Login</a></li>
+                                <li><a href="/home/contact">Contact us</a></li>
+                                <li><a href="/home/about">About</a></li>
+
                             </ul>
                         </div>
                     {{/unless}}
