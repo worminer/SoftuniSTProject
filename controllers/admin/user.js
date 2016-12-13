@@ -11,7 +11,10 @@ module.exports = {
                 });
             }
 
-            res.render('admin/user/all', {users: users});
+            res.render('admin/user/all', {
+                subTitle: 'List of all Users!',
+                users: users
+            });
         })
     },
 
@@ -26,7 +29,10 @@ module.exports = {
                     }
                 }
 
-                res.render('admin/user/edit', {user: user, roles: roles});
+                res.render('admin/user/edit', {
+                    subTitle: 'Edit information for ' + user.email + ' User!',
+                    user: user, roles: roles
+                });
             })
         })
     },
@@ -105,7 +111,10 @@ module.exports = {
         let id = req.params.id;
 
         User.findById(id).then(user => {
-            res.render('admin/user/delete', {userToDelete: user})
+            res.render('admin/user/delete', {
+                subTitle: 'Delete user ' + user.email + '!',
+                userToDelete: user
+            })
         });
     },
 

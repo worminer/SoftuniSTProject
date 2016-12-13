@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SoftUni Blog</title>
+    <title>
+        {{site.title}}
+        {{#if subTitle }}
+            {{site.titleSeparator}}
+            {{subTitle}}
+        {{/if}}
+    </title>
 
     <!-- Bootstrap required CSS -->
     <!--<link rel='stylesheet' href='/stylesheets/bootstrapDefault.css'/> -->
@@ -47,8 +53,9 @@
                 <div class="" id="logo-container">
                     <a href="/" class="navbar-brand brand-name" ><img src="/images/BEMPTVLogo.png" id="logo-style" alt=""></a>
                 </div>
+
             </div>
-            <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 pull-right" >
                 <div class="navbar navbar-default text-uppercase" id="navigation">
                     <div class="navbar-header">
                         <!-- this makes the small buttons for mobile -->
@@ -70,8 +77,8 @@
                                             <li><a href="/admin/category/all">Categories</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="/movie/create">Add New Movie</a></li>
                                 {{/if}}
-
                                 <li><a href="/user/details">Welcome({{user.email}})</a></li>
                                 <li><a href="/article/create">New Article</a></li>
                                 <li><a href="/home/contact">Contact us</a></li>
@@ -110,11 +117,7 @@
     </div>
 </div>
 
-<div class="container">
     {{{body}}}
-</div>
-
-
 
 </body>
 <footer>

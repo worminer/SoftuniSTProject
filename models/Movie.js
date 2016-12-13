@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
-let articleSchema = mongoose.Schema(
+let movieSchema = mongoose.Schema(
     {
         title: {type: String, required: true},
         content: {type: String, required: true},
@@ -10,18 +11,20 @@ let articleSchema = mongoose.Schema(
         date: {type: Date, default: Date.now()}
     });
 
-articleSchema.method({
+movieSchema.plugin(mongoosePaginate);
+
+movieSchema.method({
     prepareInsert: function () {
         let User = mongoose.model('User');
         User.findById(this.author).then(user => {
-            user.articles.push(this.id);
+            user.movies.push(this.id);
             user.save();
         });
 
         let Category = mongoose.model('Category');
         Category.findById(this.category).then(category => {
             if (category) {
-                category.articles.push(this.id);
+                category.movies.push(this.id);
                 category.save();
             }
         });
@@ -30,7 +33,7 @@ articleSchema.method({
         for (let tagId of this.tags) {
             Tag.findById(tagId).then(tag => {
                 if (tag) {
-                    tag.articles.push(this.id);
+                    tag.movies.push(this.id);
                     tag.save();
                 }
             });
@@ -40,7 +43,7 @@ articleSchema.method({
         let User = mongoose.model('User');
         User.findById(this.author).then(user => {
             if (user) {
-                user.articles.remove(this.id);
+                user.movies.remove(this.id);
                 user.save();
             }
         });
@@ -48,7 +51,7 @@ articleSchema.method({
         let Category = mongoose.model('Category');
         Category.findById(this.category).then(category => {
             if (category) {
-                category.articles.remove(this.id);
+                category.movies.remove(this.id);
                 category.save();
             }
         });
@@ -57,7 +60,7 @@ articleSchema.method({
         for (let tagId of this.tags) {
             Tag.findById(tagId).then(tag => {
                 if (tag) {
-                    tag.articles.remove(this.id);
+                    tag.movies.remove(this.id);
                     tag.save();
                 }
             });
@@ -69,5 +72,5 @@ articleSchema.method({
     }
 });
 
-const Article = mongoose.model('Article', articleSchema);
-module.exports = Article;
+const Movie = mongoose.model('Movie', movieSchema);
+module.exports = Movie;

@@ -1,12 +1,16 @@
 const homeController = require('./../controllers/home');
 const adminController = require('./../controllers/admin/admin');
 const userController = require('./../controllers/user');
-const articleController = require('./../controllers/article');
+const movieController = require('./../controllers/movie');
 const tagController = require('./../controllers/tag');
+var paginate = require('express-paginate');
 
 module.exports = (app) => {
+    app.use(paginate.middleware(10, 50));
     app.get('/', homeController.index);
-    app.get('/category/:id', homeController.listCategoryArticles);
+
+    app.get('/category/:id', homeController.listCategoryMovies);
+    app.get('/category/:id/:page', homeController.listCategoryMovies);
 
     app.get('/user/register', userController.registerGet);
     app.post('/user/register', userController.registerPost);
@@ -16,18 +20,10 @@ module.exports = (app) => {
 
     app.get('/user/logout', userController.logout);
 
-    app.get('/article/create', articleController.createGet);
-    app.post('/article/create', articleController.createPost);
+    app.get('/tag/:name', tagController.lisMoviesByTag);
+    app.get('/tag/:name/:page', tagController.lisMoviesByTag);
 
-    app.get('/article/details/:id', articleController.details);
-
-    app.get('/article/edit/:id', articleController.editGet);
-    app.post('/article/edit/:id', articleController.editPost);
-
-    app.get('/article/delete/:id', articleController.deleteGet);
-    app.post('/article/delete/:id', articleController.deletePost);
-
-    app.get('/tag/:name', tagController.lisArticlesByTag);
+    app.get('/movie/details/:id', movieController.details);
 
 
 
@@ -48,6 +44,14 @@ module.exports = (app) => {
             res.redirect('/user/login');
         }
     });
+    app.get('/movie/create', movieController.createGet);
+    app.post('/movie/create', movieController.createPost);
+
+    app.get('/movie/edit/:id', movieController.editGet);
+    app.post('/movie/edit/:id', movieController.editPost);
+
+    app.get('/movie/delete/:id', movieController.deleteGet);
+    app.post('/movie/delete/:id', movieController.deletePost);
 
     app.get('/admin/user/all', adminController.user.all);
 

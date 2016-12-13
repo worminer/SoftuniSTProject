@@ -89,11 +89,12 @@ textarea { overflow: auto; }
 .main h2 { color: #1cfe10; font-size: 22px; font-family: 'coolvetica', arial, helvetica, serif; font-weight: normal; text-shadow: rgba(0,0,0,0.9) 0px 0px 2px; }
 .main h2 a { color: #1cfe10; }
 .main h2 a:hover { text-decoration: none; color: #0acc00;  }
+
 .content
 {
     float: right;
+    width: 100%;
     margin-left: -15px;
-    padding-right: 15px;
 }
 
 .post { background: url(../images/widget-bg.png) repeat 0 0; margin-bottom: 30px;  padding: 2px; box-shadow: 0px 0px 15px rgba(0,0,0,0.4); -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.4); -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.4); -o-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);   }
@@ -140,7 +141,7 @@ textarea { overflow: auto; }
 .post a.more { color: #1cfe10; background: url(../images/list-arr.png) no-repeat 0 4px; padding-left: 9px; }
 .post a.more:hover { color: #0acc00; text-decoration: none; }
 
-.sidebar { margin-right: 5px;}
+
 .sidebar .widget { background: url(../images/widget-bg.png) repeat 0 0; margin-bottom: 30px;  padding: 2px; box-shadow: 0px 0px 15px rgba(0,0,0,0.4); -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.4); -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.4); -o-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);  }
 
 .sidebar .widget h3.widgettitle {

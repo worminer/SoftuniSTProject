@@ -3,12 +3,17 @@ const Category = require('mongoose').model('Category');
 module.exports = {
     all: (req, res) => {
         Category.find({}).then(categories => {
-            res.render('admin/category/all', {categories: categories});
+            res.render('admin/category/all', {
+                subTitle: 'List of all Categories!',
+                categories: categories
+            });
         })
     },
 
     createGet: (req, res) => {
-        res.render('admin/category/create')
+        res.render('admin/category/create',{
+            subTitle: 'Create new Category!'
+        })
     },
 
     createPost: (req, res) => {
@@ -29,7 +34,11 @@ module.exports = {
         let id = req.params.id;
 
         Category.findById(id).then(category => {
-            res.render('admin/category/edit', {category: category});
+            res.render('admin/category/edit', {
+                subTitle: 'Edit ' + category.name + ' Category!',
+                category: category
+            });
+
         })
     },
 
@@ -60,7 +69,10 @@ module.exports = {
         let id = req.params.id;
 
         Category.findById(id).then(category => {
-            res.render('admin/category/delete', {category: category});
+            res.render('admin/category/delete', {
+                subTitle: 'Delete ' + category.name +' Category!',
+                category: category
+            });
         })
     },
 

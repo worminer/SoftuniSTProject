@@ -4,7 +4,9 @@ const encryption = require('./../utilities/encryption');
 
 module.exports = {
     registerGet: (req, res) => {
-        res.render('user/register');
+        res.render('user/register',{
+            subTitle: "User registration."
+        });
     },
 
     registerPost: (req, res) => {
@@ -59,7 +61,9 @@ module.exports = {
     },
 
     loginGet: (req, res) => {
-        res.render('user/login');
+        res.render('user/login',{
+            subTitle: "User login."
+        });
     },
 
     loginPost: (req, res) => {

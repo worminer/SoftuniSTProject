@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 
 let tagSchema = mongoose.Schema({
     name: {type: String, required: true, unique: true},
-    articles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Article'}]
+    movies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}]
 });
 
 tagSchema.method({
     prepareInsert: function () {
-        let Article = mongoose.model('Article');
-        for (let article of this.articles) {
-            Article.findById(article).then(article => {
-                if (article.tags.indexOf(this.id) === -1) {
-                    article.tags.push(this.id);
-                    article.save();
+        let Movie = mongoose.model('Movie');
+        for (let article of this.movies) {
+            Movie.findById(article).then(movie => {
+                if (movie.tags.indexOf(this.id) === -1) {
+                    movie.tags.push(this.id);
+                    movie.save();
                 }
             })
         }
     },
-    deleteArticle: function (articleId) {
-        this.articles.remove(articleId);
+    deleteMovie: function (movieId) {
+        this.movies.remove(movieId);
         this.save();
     }
 });
@@ -28,20 +28,20 @@ tagSchema.set('versionKey', false);
 const Tag = mongoose.model('Tag', tagSchema);
 module.exports = Tag;
 
-module.exports.initializeTags = function (newTags, articleId) {
+module.exports.initializeTags = function (newTags, movieId) {
     for (let newTag of newTags) {
         if (newTag) {
             Tag.findOne({name: newTag}).then(tag => {
-                // If is existing - insert article in it
+                // If is existing - insert movie in it
                 if (tag) {
-                    if (tag.articles.indexOf(articleId) === -1) {
-                        tag.articles.push(articleId);
+                    if (tag.movies.indexOf(movieId) === -1) {
+                        tag.movies.push(movieId);
                         tag.prepareInsert();
                         tag.save();
                     }
                 } else {
                     Tag.create({name: newTag}).then(tag => {
-                        tag.articles.push(articleId);
+                        tag.movies.push(movieId);
                         tag.prepareInsert();
                         tag.save();
                     })

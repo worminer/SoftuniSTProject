@@ -16,7 +16,12 @@ module.exports = (config) => {
 
     require('./../models/Role').initialize();
     require('./../models/User').seedAdmin();
-    require('./../models/Article');
-    require('./../models/Category');
+
+    if(config.seedCategories){
+        require('./../models/Category').seedCategories();
+    } else {
+        require('./../models/Category')
+    }
+    require('./../models/Movie');
     require('./../models/Tag');
 };
