@@ -31,6 +31,10 @@ module.exports = (app) => {
 
     app.get('/home/contact',homeController.contact);
 
+
+    app.get('/movie/search',movieController.searchGet);
+
+
     app.use((req, res, next) => {
         if (req.isAuthenticated()) {
             req.user.isInRole('Admin').then(isAdmin => {

@@ -19,6 +19,24 @@ module.exports = {
             });
         });
     },
+    searchGet:(req, res) => {
+        if (!req.isAuthenticated()) {
+            let returnUrl = '/movie/details';
+            req.session.returnUrl = returnUrl;
+
+            res.redirect('/user/login');
+
+        }
+        //da se dobavi searchPost
+
+        res.render('movie/search');
+
+      // Movie.findByTitle({}).then(movies => {
+      //       res.render('movie/', {
+      //           categories: categories
+      //       });
+      //   });
+    },
 
     createPost: (req, res) => {
         let MovieData = req.body;
@@ -50,6 +68,8 @@ module.exports = {
             res.redirect('/');
         })
     },
+
+
 
     details: (req, res) => {
         let id = req.params.id;
