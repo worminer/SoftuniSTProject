@@ -8,7 +8,8 @@ module.exports = () => {
     Handlebars.registerPartial('categoriesMenu', categoriesMenu); // categories side menu
     Handlebars.registerPartial('moviesPreview', moviesPreview); // multiple movie previews
     Handlebars.registerPartial('imdbAddMovieForm', imdbAddMovieForm); // imdb add movie form
-    Handlebars.registerPartial('crudMovieForm ', crudMovieForm ); // crud add movie form
+    Handlebars.registerPartial('crudMovieForm', crudMovieForm); // crud add movie form
+
     //Helpers
     //Create a custom function helper to check the status.
     Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
