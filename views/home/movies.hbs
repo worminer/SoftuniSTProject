@@ -3,86 +3,14 @@
     <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 padding-right-0">
             <!-- sidebar -->
-            <aside class="sidebar">
-
-                <!-- Side menu Bootstrap -->
-                <div class="widget">
-                    <div class="nav-side-menu">
-                        <div class="navbar navbar-default widgettitle-container" data-toggle="collapse" data-target="#menu-content">
-                            <h3 class="widgettitle display-inline">Categories</h3>
-                            <div class="navbar-header display-inline pull-right">
-                                <!-- this makes the small buttons for mobile -->
-
-                                <button type="button" class="navbar-toggle">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="menu-list">
-                            <ul id="menu-content" class="menu-content collapse out">
-                                {{#each categories}}
-                                    <li>
-                                        <a href="/category/{{ this.id }}" class="hoverbuble">{{ this.name }}  <span>{{ this.movies.length }}</span></a>
-                                    </li>
-                                {{/each}}
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Side menu Bootstrap -->
-            </aside>
+            {{> categoriesMenu}}            
             <!-- end of sidebar -->
         </div>
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
             <!-- content -->
             <section class="content">
-                {{#each movies}}
-                    <div class="post">
-                        <!-- post-inner -->
-                        <article>
-                            <div class="post-inner">
-                                <header>
-                                    <h2><a href="#">{{ this.title }}</a></h2>
-                                    <p class="tags">{{#each this.tags}}<a href="/tag/{{this.name}}">{{this.name}}</a>{{/each}}</p>
-                                    <div class="cl">&nbsp;</div>
-                                </header>
-                                <div class="img-holder">
-                                    <a href="#"><img class="post-Image-link" src="/images/post-img2.jpg" alt="" /></a>
-                                    <a href="/images/post-img2.jpg" class="btn-full-image popup group1"><span>FULL IMAGE</span></a>
-                                </div>
-                                <!-- meta -->
-                                <div class="meta">
-                                    <p class="date">(TODO:add date!) APRIL 09, 2012 BY  <a href="#">{{ this.author.fullName }}</a></p>
-                                    <div class="right">
-                                        <div class="rating-holder">
-                                            <p>RATING</p>
-                                            <div class="rating">
-                                                <span style="width: 100%;"></span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="comments">59 comments</a>
-                                    </div>
-                                    <div class="cl">&nbsp;</div>
-                                </div>
-                                <!-- end of meta -->
-                                <!-- post-cnt -->
-                                <div class="post-cnt">
-                                    <p>{{ this.content }}</p>
-                                    <p>(TODO: Limit words)</p>
-                                </div>
+                {{> moviesPreview}}
 
-                                <footer class="">
-                                    <a class="btn btn-default btn-xs" href="/movie/details/{{this.id}}">Read more &raquo;</a>
-                                </footer>
-                                <!-- end of post-cnt -->
-                            </div>
-                            <!-- post-inner -->
-                        </article>
-                    </div>
-                {{/each}}
             </section>
             <!-- end of content -->
         </div>
@@ -94,19 +22,19 @@
         <div class="pagination col-md-12 ">
             <ul>
                 {{#unless paginationInfo.isOnFistPage}}
-                    <li class="laquo"><a href="/category/{{categoryId}}/{{paginationInfo.previousPage}}"><span></span></a></li>
+                    <li class="laquo"><a href="/genre/{{genreId}}/{{paginationInfo.previousPage}}"><span></span></a></li>
                 {{/unless}}
 
 
                 {{#each paginationInfo.pagesArr }}
 
-                    <li  {{#equal this ../paginationInfo.currentPage}}class="active"{{/equal}} ><a href="/category/{{../categoryId}}/{{this}}">{{this}}</a></li>
+                    <li  {{#equal this ../paginationInfo.currentPage}}class="active"{{/equal}} ><a href="/genre/{{../genreId}}/{{this}}">{{this}}</a></li>
                 {{/each}}
 
                 {{#unless paginationInfo.isOnLastPage}}
-                    <li class="raquo"><a href="/category/{{categoryId}}/{{paginationInfo.nextPage }}"><span></span></a></li>
+                    <li class="raquo"><a href="/genre/{{genreId}}/{{paginationInfo.nextPage }}"><span></span></a></li>
                     <li class="dots">. . .</li>
-                    <li><a href="/category/{{categoryId}}/{{paginationInfo.pages }}">last page({{paginationInfo.pages}})</a></li>
+                    <li><a href="/genre/{{genreId}}/{{paginationInfo.pages }}">last page({{paginationInfo.pages}})</a></li>
                 {{/unless}}
 
             </ul>

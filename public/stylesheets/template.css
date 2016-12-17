@@ -103,7 +103,12 @@ textarea { overflow: auto; }
 }
 .post-inner header { padding-bottom: 16px;  }
 
-.post-inner .img-holder { background: url(../images/widget-bg.png) repeat 0 0; padding: 2px; position: relative; display: block; margin-bottom: 14px;  }
+.post-inner .img-holder {
+    background: url(../images/widget-bg.png) repeat 0 0;
+    padding: 2px;
+    position: relative;
+    display: block; margin-bottom: 14px;
+}
 .post-inner .img-holder img { display: block; }
 .post-inner .img-holder a.btn-full-image {
     display: block;
@@ -127,7 +132,7 @@ textarea { overflow: auto; }
 .post-inner p.tags a:hover { color: #fff; text-decoration: none; }
 
 .post .meta { font-size: 9px; color: #bdbdbd; text-transform: uppercase; padding-bottom: 13px; }
-.post .meta .right { width: 225px; }
+.post .meta .right { width: 190px; }
 .post .meta p.date { color: #838383; float: left; }
 .post .meta p.date a { text-decoration: underline; color: #dbdbdb; }
 .post .meta p.date a:hover { text-decoration: none; }

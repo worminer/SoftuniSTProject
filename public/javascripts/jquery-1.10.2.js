@@ -452,7 +452,7 @@ jQuery.extend({
 		}
 	},
 
-	// See test/unit/core.js for details concerning isFunction.
+	// See categoriesMenu/unit/core.js for details concerning isFunction.
 	// Since version 1.3, DOM methods and functions like alert
 	// aren't supported. They return false on IE (#2968).
 	isFunction: function( obj ) {
@@ -1519,7 +1519,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Support: IE<10
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programatically-set names,
-	// so use a roundabout getElementsByName test
+	// so use a roundabout getElementsByName categoriesMenu
 	support.getById = assert(function( div ) {
 		docElem.appendChild( div ).id = expando;
 		return !doc.getElementsByName || !doc.getElementsByName( expando ).length;
@@ -1608,7 +1608,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Regex strategy adopted from Diego Perini
 		assert(function( div ) {
 			// Select is set to empty string on purpose
-			// This is to test IE's treatment of not explicitly
+			// This is to categoriesMenu IE's treatment of not explicitly
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
@@ -2341,7 +2341,7 @@ Expr = Sizzle.selectors = {
 		"text": function( elem ) {
 			var attr;
 			// IE6 and 7 will map elem.type to 'text' for new HTML5 types (search, etc)
-			// use getAttribute instead to test this case
+			// use getAttribute instead to categoriesMenu this case
 			return elem.nodeName.toLowerCase() === "input" &&
 				elem.type === "text" &&
 				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === elem.type );
@@ -3516,7 +3516,7 @@ jQuery.support = (function( support ) {
 		div.innerHTML = "";
 		div.style.cssText = "box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;padding:1px;border:1px;display:block;width:4px;margin-top:1%;position:absolute;top:1%;";
 
-		// Workaround failing boxSizing test due to offsetWidth returning wrong value
+		// Workaround failing boxSizing categoriesMenu due to offsetWidth returning wrong value
 		// with some non-1 values of body zoom, ticket #13543
 		jQuery.swap( body, body.style.zoom != null ? { zoom: 1 } : {}, function() {
 			support.boxSizing = div.offsetWidth === 4;
@@ -5036,7 +5036,7 @@ jQuery.event = {
 				jQuery.acceptData( elem ) ) {
 
 				// Call a native DOM method on the target with the same name name as the event.
-				// Can't use an .isFunction() check here because IE6/7 fails that test.
+				// Can't use an .isFunction() check here because IE6/7 fails that categoriesMenu.
 				// Don't do default actions on window, that's where global variables be (#6170)
 				if ( ontype && elem[ type ] && !jQuery.isWindow( elem ) ) {
 
@@ -7389,7 +7389,7 @@ if ( !jQuery.support.opacity ) {
 	};
 }
 
-// These hooks cannot be added until DOM ready because the support test
+// These hooks cannot be added until DOM ready because the support categoriesMenu
 // for it is not run until after DOM ready
 jQuery(function() {
 	if ( !jQuery.support.reliableMarginRight ) {

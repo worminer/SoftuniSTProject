@@ -20,11 +20,20 @@
                             </div>
                         </div>
                         <div class="menu-list">
+
                             <ul id="menu-content" class="menu-content collapse overide-width-md">
                                 {{#each categories}}
-                                <li>
-                                    <a href="/category/{{ this.id }}" class="hoverbuble">{{ this.name }}  <span>{{ this.movies.length }}</span></a>
-                                </li>
+                                    {{#if ../site.categoryMenu.hideEmptyCategories }}
+                                        {{#compare this.movies.length 0 operator=">"}}
+                                            <li>
+                                                <a href="/genre/{{ this.id }}" class="hoverbuble">{{ this.name }}  <span>{{ this.movies.length }}</span></a>
+                                            </li>
+                                        {{/compare}}
+                                    {{else}}
+                                        <li>
+                                            <a href="/genre/{{ this.id }}" class="hoverbuble">{{ this.name }}  <span>{{ this.movies.length }}</span></a>
+                                        </li>
+                                    {{/if}}
                                 {{/each}}
 
                             </ul>
@@ -84,10 +93,6 @@
                 {{/each}}
             </section>
             <!-- end of content -->
-            <div>
-                <h1>TODO:Pagination!!!</h1>
-            </div>
         </div>
-
     </div>
 </div>

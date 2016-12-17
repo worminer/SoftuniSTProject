@@ -5,9 +5,9 @@ const app = express();
 //let env = 'development'; // deprecated -> moved to config.env
 // setting variables for the whole site
 app.locals.site = {
-        title: config.titleOptions.siteTitle,
-        titleSeparator: config.titleOptions.titleSeparator
-    };
+    titleOptions: config.titleOptions,
+    config      : config,                       // passing all configurations
+};
 require('./config/handlebars')();
 require('./config/database')(config);
 require('./config/express')(app, config);

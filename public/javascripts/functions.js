@@ -4,9 +4,15 @@ $(function() {
     $('#navigation ul li:last-child').addClass('last');
     $('.footer-nav ul li:first-child').addClass('first');
 
-	$('a.popup').colorbox({
-		onComplete: function(){
-			$.colorbox.resize();
-		}
-	})
+		$('a.popup').colorbox({
+			onComplete: function(){
+				$.colorbox.resize();
+			}
+		})
+
+    $('option').mousedown(function(e) {
+        e.preventDefault();
+        $(this).prop('selected', $(this).prop('selected') ? false : true);
+        return false;
+    });
 });
