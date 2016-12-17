@@ -23,17 +23,34 @@ module.exports = {
             })
         })
     },
+<<<<<<< HEAD
     listGenreMovies: (req, res) => {
         let genreId = req.params.id;
+=======
+    contact:(req, res) =>{
+        res.render('home/contact');
+    },
+    about:(req, res) =>{
+        res.render('home/about');
+    },
+    listCategoryMovies: (req, res) => {
+        let categoryId = req.params.id;
+>>>>>>> 79ec6e432652379ada37d0eb6e050770015bd683
         let currentPage = parseInt(req.params.page);
         if(isNaN(currentPage)){
             currentPage = 1;
         }
+<<<<<<< HEAD
         Genre.find({}).sort('name').then(genre => {
             Genre.findById(genreId).then(genres => {
                 // this will is slow quarry
                 Movie.paginate({genres:genreId},{page: currentPage, limit: config.categoriesConfig.postLimit}).then(pagesInfo => {
                     //console.log(pagesInfo);
+=======
+        Category.find({}).sort('name').then(categories => {
+            Category.findById(categoryId).then(category => {
+                Movie.paginate({category:categoryId},{page: currentPage, limit: config.categoriesConfig.postLimit}).then(pagesInfo => {
+>>>>>>> 79ec6e432652379ada37d0eb6e050770015bd683
                     let populateQuery = [
                         {path: 'added_by',   select: 'fullName'},
                         {path: 'categories', select: 'name'},

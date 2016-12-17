@@ -22,9 +22,22 @@ module.exports = (app) => {
     app.get('/tag/:name', tagController.lisMoviesByTag); // Public Search by tag name!
     app.get('/tag/:name/:page', tagController.lisMoviesByTag); // Public Search by tag name! and page number
 
+<<<<<<< HEAD
     app.get('/movie/details/:id', movieController.details); // Public movie detail
 
     // middleware that allows only admins to work with those routes
+=======
+
+
+    app.get('/home/about',homeController.about);
+
+    app.get('/home/contact',homeController.contact);
+
+
+    app.get('/movie/search',movieController.searchGet);
+
+
+>>>>>>> 79ec6e432652379ada37d0eb6e050770015bd683
     app.use((req, res, next) => {
         if (req.isAuthenticated()) {
             req.user.isInRole('Admin').then(isAdmin => {
