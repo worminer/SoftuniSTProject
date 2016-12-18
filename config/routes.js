@@ -3,27 +3,29 @@ const adminController = require('./../controllers/admin/admin');
 const userController = require('./../controllers/user');
 const movieController = require('./../controllers/movie');
 const tagController = require('./../controllers/tag');
-var paginate = require('express-paginate');
 
 module.exports = (app) => {
-    app.use(paginate.middleware(10, 50));
-    app.get('/', homeController.index);
 
-    app.get('/category/:id', homeController.listCategoryMovies);
-    app.get('/category/:id/:page', homeController.listCategoryMovies);
+    app.get('/', homeController.index); // Public slow home page
 
-    app.get('/user/register', userController.registerGet);
-    app.post('/user/register', userController.registerPost);
+    app.get('/genre/:id', homeController.listGenreMovies); // Public search by genre
+    app.get('/genre/:id/:page', homeController.listGenreMovies); // Public search by genre and page number
 
-    app.get('/user/login', userController.loginGet);
-    app.post('/user/login', userController.loginPost);
+    app.get('/user/register', userController.registerGet);   // Public show registration form
+    app.post('/user/register', userController.registerPost); // Public register new user
 
-    app.get('/user/logout', userController.logout);
+    app.get('/user/login', userController.loginGet); // Public get login page
+    app.post('/user/login', userController.loginPost); // Public login the user
 
-    app.get('/tag/:name', tagController.lisMoviesByTag);
-    app.get('/tag/:name/:page', tagController.lisMoviesByTag);
+    app.get('/user/logout', userController.logout); // Public logout
 
-    app.get('/movie/details/:id', movieController.details);
+    app.get('/tag/:name', tagController.lisMoviesByTag); // Public Search by tag name!
+    app.get('/tag/:name/:page', tagController.lisMoviesByTag); // Public Search by tag name! and page number
+
+
+    app.get('/movie/details/:id', movieController.details); // Public movie detail
+
+    // middleware that allows only admins to work with those routes
 
 
 
@@ -33,6 +35,7 @@ module.exports = (app) => {
 
 
     app.get('/movie/search',movieController.searchGet);
+
 
 
     app.use((req, res, next) => {
@@ -48,15 +51,26 @@ module.exports = (app) => {
             res.redirect('/user/login');
         }
     });
-    app.get('/movie/create', movieController.createGet);
-    app.post('/movie/create', movieController.createPost);
 
-    app.get('/movie/edit/:id', movieController.editGet);
-    app.post('/movie/edit/:id', movieController.editPost);
+    // movie controller stuff
+    app.get('/admin/movie/imdb/', adminController.movie.imdbIndexGet);
 
-    app.get('/movie/delete/:id', movieController.deleteGet);
-    app.post('/movie/delete/:id', movieController.deletePost);
+    app.get('/admin/movie/imdb/name/', adminController.movie.imdbIndexGet);
+    app.post('/admin/movie/imdb/name/', adminController.movie.imdbByNamePost);
 
+    app.get('/admin/movie/imdb/id/', adminController.movie.imdbIndexGet);
+    app.post('/admin/movie/imdb/id/', adminController.movie.imdbByIdPost);
+
+    app.get('/admin/movie/create', adminController.movie.createGet);
+    app.post('/admin/movie/create', adminController.movie.createPost);
+
+    app.get('/admin/movie/edit/:id', adminController.movie.editGet);
+    app.post('/admin/movie/edit/:id', adminController.movie.editPost);
+
+    app.get('/admin/movie/delete/:id', adminController.movie.deleteGet);
+    app.post('/admin/movie/delete/:id', adminController.movie.deletePost);
+
+    //user controller stuff
     app.get('/admin/user/all', adminController.user.all);
 
     app.get('/admin/user/edit/:id', adminController.user.editGet);
@@ -65,14 +79,15 @@ module.exports = (app) => {
     app.get('/admin/user/delete/:id', adminController.user.deleteGet);
     app.post('/admin/user/delete/:id', adminController.user.deletePost);
 
-    app.get('/admin/category/all', adminController.category.all);
+    //category controller stuff
+    app.get('/admin/genre/all', adminController.genre.all);
 
-    app.get('/admin/category/create', adminController.category.createGet);
-    app.post('/admin/category/create', adminController.category.createPost);
+    app.get('/admin/genre/create', adminController.genre.createGet);
+    app.post('/admin/genre/create', adminController.genre.createPost);
 
-    app.get('/admin/category/edit/:id', adminController.category.editGet);
-    app.post('/admin/category/edit/:id', adminController.category.editPost);
+    app.get('/admin/genre/edit/:id', adminController.genre.editGet);
+    app.post('/admin/genre/edit/:id', adminController.genre.editPost);
 
-    app.get('/admin/category/delete/:id', adminController.category.deleteGet);
-    app.post('/admin/category/delete/:id', adminController.category.deletePost);
+    app.get('/admin/genre/delete/:id', adminController.genre.deleteGet);
+    app.post('/admin/genre/delete/:id', adminController.genre.deletePost);
 };

@@ -18,9 +18,9 @@ module.exports = (config) => {
     require('./../models/User').seedAdmin();
 
     if(config.seedCategories){
-        require('./../models/Category').seedCategories();
+        require('./../models/Genre').seedCategories();
     } else {
-        require('./../models/Category')
+        require('./../models/Genre')
     }
     require('./../models/Movie');
     require('./../models/Tag');

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Movie = require('mongoose').model('Movie');
 const Tag = require('mongoose').model('Tag');
 const User = mongoose.model('User');
-const Category = mongoose.model('Category');
+const Category = mongoose.model('Genre');
 const paginate = require('express-paginate');
 
 module.exports = {
@@ -58,9 +58,9 @@ module.exports = {
                         }
 
                         res.render('tag/details', {
-                            subTitle: 'List of all movies with tag ' + tag.name + '..', // subTitle
+                            subTitle: 'List of all movie with tag ' + tag.name + '..', // subTitle
                             tag: tag,       // current tag
-                            movies: pagesInfo.docs, // all the movies for this tag..
+                            movies: pagesInfo.docs, // all the movie for this tag..
                             categories: categories, // all the categories for the left menu
                             paginationInfo:{                   // all the info needed for pagination
                                 totalItems  : pagesInfo.total, // total videos matched
