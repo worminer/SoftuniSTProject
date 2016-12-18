@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35db84c4-6a57-47d0-ae88-dbc65cb38500" name="Default" comment="" />
+    <list default="true" id="35db84c4-6a57-47d0-ae88-dbc65cb38500" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_answer.php" afterPath="$PROJECT_DIR$/add_answer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_topic.php" afterPath="$PROJECT_DIR$/add_topic.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_forum.php" afterPath="$PROJECT_DIR$/main_forum.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view_topic.php" afterPath="$PROJECT_DIR$/view_topic.php" />
+    </list>
     <ignored path="ForumVShopping.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -31,25 +37,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_topic.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add_topic.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/add_topic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="255">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding>
-                <marker date="1482007979256" expanded="true" signature="554:672" ph="INSERT INTO ${$tbl_name}... " />
+                <marker date="1482068663330" expanded="true" signature="563:681" ph="INSERT INTO ${$tbl_name}... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_forum.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_forum.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_forum.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+            <state relative-caret-position="68">
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
               <folding>
-                <marker date="1482008535206" expanded="true" signature="372:412" ph="SELECT * FRO... ${$tbl_name}" />
+                <marker date="1482068446229" expanded="true" signature="391:431" ph="SELECT * FRO... ${$tbl_name}" />
               </folding>
             </state>
           </provider>
@@ -58,14 +64,14 @@
       <file leaf-file-name="view_topic.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view_topic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="170">
+              <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
               <folding>
-                <marker date="1482007979196" expanded="true" signature="436:474" ph="SELECT * FRO... ${$tbl_name}" />
-                <marker date="1482007979196" expanded="true" signature="1478:1526" ph="SELECT * FRO... ${$tbl_name2}" />
-                <marker date="1482007979196" expanded="true" signature="3229:3270" ph="SELECT view " />
-                <marker date="1482007979196" expanded="true" signature="3447:3505" ph="INSERT INTO ${$tbl_name}... " />
-                <marker date="1482007979196" expanded="true" signature="3590:3641" ph="update ${$tb... " />
+                <marker date="1482068663377" expanded="true" signature="445:483" ph="SELECT * FRO... ${$tbl_name}" />
+                <marker date="1482068663377" expanded="true" signature="1487:1535" ph="SELECT * FRO... ${$tbl_name2}" />
+                <marker date="1482068663377" expanded="true" signature="3238:3279" ph="SELECT view " />
+                <marker date="1482068663377" expanded="true" signature="3456:3514" ph="INSERT INTO ${$tbl_name}... " />
+                <marker date="1482068663377" expanded="true" signature="3599:3650" ph="update ${$tb... " />
               </folding>
             </state>
           </provider>
@@ -74,12 +80,12 @@
       <file leaf-file-name="add_answer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/add_answer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+            <state relative-caret-position="68">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
               <folding>
-                <marker date="1482007988975" expanded="true" signature="468:534" ph="SELECT MAX(a... ${$tbl_name}" />
-                <marker date="1482007988975" expanded="true" signature="986:1138" ph="INSERT INTO ${$tbl_name}... " />
-                <marker date="1482007988975" expanded="true" signature="1380:1432" ph="UPDATE ${$tb... " />
+                <marker date="1482068602877" expanded="true" signature="477:543" ph="SELECT MAX(a... ${$tbl_name}" />
+                <marker date="1482068602877" expanded="true" signature="995:1147" ph="INSERT INTO ${$tbl_name}... " />
+                <marker date="1482068602877" expanded="true" signature="1389:1441" ph="UPDATE ${$tb... " />
               </folding>
             </state>
           </provider>
@@ -94,10 +100,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/create_topic.php" />
-        <option value="$PROJECT_DIR$/add_topic.php" />
-        <option value="$PROJECT_DIR$/view_topic.php" />
-        <option value="$PROJECT_DIR$/add_answer.php" />
         <option value="$PROJECT_DIR$/main_forum.php" />
+        <option value="$PROJECT_DIR$/add_answer.php" />
+        <option value="$PROJECT_DIR$/view_topic.php" />
+        <option value="$PROJECT_DIR$/add_topic.php" />
       </list>
     </option>
   </component>
@@ -167,6 +173,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -228,12 +236,14 @@
       <updated>1482004818437</updated>
       <workItem from="1482004820619" duration="1553000" />
       <workItem from="1482007867136" duration="980000" />
-      <workItem from="1482009080729" duration="30000" />
+      <workItem from="1482009080729" duration="1459000" />
+      <workItem from="1482045645397" duration="84000" />
+      <workItem from="1482045747173" duration="2751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2563000" />
+    <option name="totallyTimeSpent" value="6827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -241,6 +251,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -249,7 +260,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -308,17 +318,17 @@
         <state relative-caret-position="85">
           <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="18" />
           <folding>
-            <marker date="1482007979256" expanded="true" signature="554:672" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068663330" expanded="true" signature="563:681" ph="INSERT INTO ${$tbl_name}... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_forum.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="272">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
-            <marker date="1482008535206" expanded="true" signature="372:412" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068446229" expanded="true" signature="391:431" ph="SELECT * FRO... ${$tbl_name}" />
           </folding>
         </state>
       </provider>
@@ -328,11 +338,11 @@
         <state relative-caret-position="85">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding>
-            <marker date="1482007979196" expanded="true" signature="436:474" ph="SELECT * FRO... ${$tbl_name}" />
-            <marker date="1482007979196" expanded="true" signature="1478:1526" ph="SELECT * FRO... ${$tbl_name2}" />
-            <marker date="1482007979196" expanded="true" signature="3229:3270" ph="SELECT view " />
-            <marker date="1482007979196" expanded="true" signature="3447:3505" ph="INSERT INTO ${$tbl_name}... " />
-            <marker date="1482007979196" expanded="true" signature="3590:3641" ph="update ${$tb... " />
+            <marker date="1482068663377" expanded="true" signature="445:483" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068663377" expanded="true" signature="1487:1535" ph="SELECT * FRO... ${$tbl_name2}" />
+            <marker date="1482068663377" expanded="true" signature="3238:3279" ph="SELECT view " />
+            <marker date="1482068663377" expanded="true" signature="3456:3514" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068663377" expanded="true" signature="3599:3650" ph="update ${$tb... " />
           </folding>
         </state>
       </provider>
@@ -342,9 +352,117 @@
         <state relative-caret-position="170">
           <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
           <folding>
-            <marker date="1482007988975" expanded="true" signature="468:534" ph="SELECT MAX(a... ${$tbl_name}" />
-            <marker date="1482007988975" expanded="true" signature="986:1138" ph="INSERT INTO ${$tbl_name}... " />
-            <marker date="1482007988975" expanded="true" signature="1380:1432" ph="UPDATE ${$tb... " />
+            <marker date="1482068602877" expanded="true" signature="477:543" ph="SELECT MAX(a... ${$tbl_name}" />
+            <marker date="1482068602877" expanded="true" signature="995:1147" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068602877" expanded="true" signature="1389:1441" ph="UPDATE ${$tb... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <marker date="1482068663330" expanded="true" signature="563:681" ph="INSERT INTO ${$tbl_name}... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_forum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1482068446229" expanded="true" signature="391:431" ph="SELECT * FRO... ${$tbl_name}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <marker date="1482068663377" expanded="true" signature="445:483" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068663377" expanded="true" signature="1487:1535" ph="SELECT * FRO... ${$tbl_name2}" />
+            <marker date="1482068663377" expanded="true" signature="3238:3279" ph="SELECT view " />
+            <marker date="1482068663377" expanded="true" signature="3456:3514" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068663377" expanded="true" signature="3599:3650" ph="update ${$tb... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <marker date="1482068602877" expanded="true" signature="477:543" ph="SELECT MAX(a... ${$tbl_name}" />
+            <marker date="1482068602877" expanded="true" signature="995:1147" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068602877" expanded="true" signature="1389:1441" ph="UPDATE ${$tb... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <marker date="1482068663330" expanded="true" signature="563:681" ph="INSERT INTO ${$tbl_name}... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_forum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1482068446229" expanded="true" signature="391:431" ph="SELECT * FRO... ${$tbl_name}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <marker date="1482068663377" expanded="true" signature="445:483" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068663377" expanded="true" signature="1487:1535" ph="SELECT * FRO... ${$tbl_name2}" />
+            <marker date="1482068663377" expanded="true" signature="3238:3279" ph="SELECT view " />
+            <marker date="1482068663377" expanded="true" signature="3456:3514" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068663377" expanded="true" signature="3599:3650" ph="update ${$tb... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <marker date="1482068602877" expanded="true" signature="477:543" ph="SELECT MAX(a... ${$tbl_name}" />
+            <marker date="1482068602877" expanded="true" signature="995:1147" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068602877" expanded="true" signature="1389:1441" ph="UPDATE ${$tb... " />
           </folding>
         </state>
       </provider>
@@ -362,7 +480,7 @@
         <state relative-caret-position="85">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="17" />
           <folding>
-            <marker date="1482007979256" expanded="true" signature="554:672" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068663330" expanded="true" signature="563:681" ph="INSERT INTO ${$tbl_name}... " />
           </folding>
         </state>
       </provider>
@@ -372,7 +490,7 @@
         <state relative-caret-position="85">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
-            <marker date="1482008535206" expanded="true" signature="372:412" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068446229" expanded="true" signature="391:431" ph="SELECT * FRO... ${$tbl_name}" />
           </folding>
         </state>
       </provider>
@@ -382,11 +500,11 @@
         <state relative-caret-position="85">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
-            <marker date="1482007979196" expanded="true" signature="436:474" ph="SELECT * FRO... ${$tbl_name}" />
-            <marker date="1482007979196" expanded="true" signature="1478:1526" ph="SELECT * FRO... ${$tbl_name2}" />
-            <marker date="1482007979196" expanded="true" signature="3229:3270" ph="SELECT view " />
-            <marker date="1482007979196" expanded="true" signature="3447:3505" ph="INSERT INTO ${$tbl_name}... " />
-            <marker date="1482007979196" expanded="true" signature="3590:3641" ph="update ${$tb... " />
+            <marker date="1482068663377" expanded="true" signature="445:483" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068663377" expanded="true" signature="1487:1535" ph="SELECT * FRO... ${$tbl_name2}" />
+            <marker date="1482068663377" expanded="true" signature="3238:3279" ph="SELECT view " />
+            <marker date="1482068663377" expanded="true" signature="3456:3514" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068663377" expanded="true" signature="3599:3650" ph="update ${$tb... " />
           </folding>
         </state>
       </provider>
@@ -396,45 +514,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1482007988975" expanded="true" signature="468:534" ph="SELECT MAX(a... ${$tbl_name}" />
-            <marker date="1482007988975" expanded="true" signature="986:1138" ph="INSERT INTO ${$tbl_name}... " />
-            <marker date="1482007988975" expanded="true" signature="1380:1432" ph="UPDATE ${$tb... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/add_topic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <marker date="1482007979256" expanded="true" signature="554:672" ph="INSERT INTO ${$tbl_name}... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view_topic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <marker date="1482007979196" expanded="true" signature="436:474" ph="SELECT * FRO... ${$tbl_name}" />
-            <marker date="1482007979196" expanded="true" signature="1478:1526" ph="SELECT * FRO... ${$tbl_name2}" />
-            <marker date="1482007979196" expanded="true" signature="3229:3270" ph="SELECT view " />
-            <marker date="1482007979196" expanded="true" signature="3447:3505" ph="INSERT INTO ${$tbl_name}... " />
-            <marker date="1482007979196" expanded="true" signature="3590:3641" ph="update ${$tb... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/add_answer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-          <folding>
-            <marker date="1482007988975" expanded="true" signature="468:534" ph="SELECT MAX(a... ${$tbl_name}" />
-            <marker date="1482007988975" expanded="true" signature="986:1138" ph="INSERT INTO ${$tbl_name}... " />
-            <marker date="1482007988975" expanded="true" signature="1380:1432" ph="UPDATE ${$tb... " />
+            <marker date="1482068602877" expanded="true" signature="477:543" ph="SELECT MAX(a... ${$tbl_name}" />
+            <marker date="1482068602877" expanded="true" signature="995:1147" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068602877" expanded="true" signature="1389:1441" ph="UPDATE ${$tb... " />
           </folding>
         </state>
       </provider>
@@ -447,12 +529,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+          <folding>
+            <marker date="1482068663377" expanded="true" signature="445:483" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068663377" expanded="true" signature="1487:1535" ph="SELECT * FRO... ${$tbl_name2}" />
+            <marker date="1482068663377" expanded="true" signature="3238:3279" ph="SELECT view " />
+            <marker date="1482068663377" expanded="true" signature="3456:3514" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068663377" expanded="true" signature="3599:3650" ph="update ${$tb... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding>
+            <marker date="1482068602877" expanded="true" signature="477:543" ph="SELECT MAX(a... ${$tbl_name}" />
+            <marker date="1482068602877" expanded="true" signature="995:1147" ph="INSERT INTO ${$tbl_name}... " />
+            <marker date="1482068602877" expanded="true" signature="1389:1441" ph="UPDATE ${$tb... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main_forum.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        <state relative-caret-position="68">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
           <folding>
-            <marker date="1482008535206" expanded="true" signature="372:412" ph="SELECT * FRO... ${$tbl_name}" />
+            <marker date="1482068446229" expanded="true" signature="391:431" ph="SELECT * FRO... ${$tbl_name}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <marker date="1482068663330" expanded="true" signature="563:681" ph="INSERT INTO ${$tbl_name}... " />
           </folding>
         </state>
       </provider>

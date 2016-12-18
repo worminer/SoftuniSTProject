@@ -1,18 +1,18 @@
 <?php
 
-$host="localhost"; // Host name
-$username="admin"; // Mysql username
-$password="admin"; // Mysql password
-$db_name="forum_db"; // Database name
-$tbl_name="forum_question"; // Table name
+$host = "localhost"; // Host name
+$username = "root"; // Mysql username
+$password = ""; // Mysql password
+$db_name = "forum_db"; // Database name
+$tbl_name = "forum_question"; // Table name
 
 // Connect to server and select databse.
-mysqli_connect("$host", "$username", "$password")or die("cannot connect");
-mysqli_select_db("$db_name")or die("cannot select DB");
+$conn = mysqli_connect("$host", "$username", "$password")or die("cannot connect");
+mysqli_select_db($conn, "$db_name")or die("cannot select DB");
 $sql="SELECT * FROM $tbl_name ORDER BY id DESC";
 // OREDER BY id DESC is order result by descending
 
-$result=mysqli_query($sql);
+$result=mysqli_query($conn, $sql);
 ?>
 
 <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
@@ -27,11 +27,12 @@ $result=mysqli_query($sql);
     <?php
 
     // Start looping table row
-    while($rows=mysqli_fetch_array($result)){
+    while ($rows = mysqli_fetch_array($result)) {
         ?>
         <tr>
             <td bgcolor="#FFFFFF"><? echo $rows['id']; ?></td>
-            <td bgcolor="#FFFFFF"><a href="view_topic.php?id=<? echo $rows['id']; ?>"><? echo $rows['topic']; ?></a><BR></td>
+            <td bgcolor="#FFFFFF"><a href="view_topic.php?id=<? echo $rows['id']; ?>"><? echo $rows['topic']; ?></a><BR>
+            </td>
             <td align="center" bgcolor="#FFFFFF"><? echo $rows['view']; ?></td>
             <td align="center" bgcolor="#FFFFFF"><? echo $rows['reply']; ?></td>
             <td align="center" bgcolor="#FFFFFF"><? echo $rows['datetime']; ?></td>
@@ -40,10 +41,11 @@ $result=mysqli_query($sql);
         <?php
 // Exit looping and close connection
     }
-    mysqli_close();
+    mysqli_close($conn);
     ?>
 
     <tr>
-        <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="create_topic.php"><strong>Create New Topic</strong> </a></td>
+        <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="create_topic.php"><strong>Create New Topic</strong>
+            </a></td>
     </tr>
 </table>
