@@ -1,4 +1,4 @@
-const Category = require('mongoose').model('Category');
+const Category = require('mongoose').model('Genre');
 
 module.exports = {
     all: (req, res) => {
@@ -12,7 +12,7 @@ module.exports = {
 
     createGet: (req, res) => {
         res.render('admin/category/create',{
-            subTitle: 'Create new Category!'
+            subTitle: 'Create new Genre!'
         })
     },
 
@@ -20,7 +20,7 @@ module.exports = {
         let categoryArgs = req.body;
 
         if (!categoryArgs) {
-            let errorMsg = 'Category can not be null';
+            let errorMsg = 'Genre can not be null';
             categoryArgs.error = errorMsg;
             res.render('admin/category/create', categoryArgs);
         } else {
@@ -35,7 +35,7 @@ module.exports = {
 
         Category.findById(id).then(category => {
             res.render('admin/category/edit', {
-                subTitle: 'Edit ' + category.name + ' Category!',
+                subTitle: 'Edit ' + category.name + ' Genre!',
                 category: category
             });
 
@@ -48,7 +48,7 @@ module.exports = {
         let editArgs = req.body;
 
         if (!editArgs.name) {
-            let errorMsg = 'Category can not be empty';
+            let errorMsg = 'Genre can not be empty';
 
             Category.findById(id).then(category => {
                 res.render('admin/category/edit', {category: category, error: errorMsg});
@@ -70,7 +70,7 @@ module.exports = {
 
         Category.findById(id).then(category => {
             res.render('admin/category/delete', {
-                subTitle: 'Delete ' + category.name +' Category!',
+                subTitle: 'Delete ' + category.name +' Genre!',
                 category: category
             });
         })

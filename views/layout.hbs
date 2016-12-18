@@ -2,10 +2,12 @@
 <html>
 <head>
     <title>
-        {{site.title}}
-        {{#if subTitle }}
-            {{site.titleSeparator}}
-            {{subTitle}}
+        {{site.titleOptions.siteTitle}}
+        {{#if site.titleOptions.LongTitles }}
+            {{#if subTitle }}
+                {{site.titleOptions.titleSeparator}}
+                {{subTitle}}
+            {{/if}}
         {{/if}}
     </title>
 
@@ -74,13 +76,22 @@
                                                             role="button" aria-expanded="false">Admin<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="/admin/user/all">Users</a></li>
-                                            <li><a href="/admin/category/all">Categories</a></li>
+                                            <li><a href="/admin/genre/all">Categories</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/movie/create">Add New Movie</a></li>
+                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                            role="button" aria-expanded="false">Movie Manager<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/admin/movie/create">Add New Movie</a></li>
+                                            <li><a href="/admin/movie/imdb/">Add New Movie from imdb</a></li>
+                                        </ul>
+                                    </li>
+
                                 {{/if}}
+
                                 <li><a href="/user/details">Welcome({{user.email}})</a></li>
                                 <li><a href="/article/create">New Article</a></li>
+                                <li><a href="/movie/search">Search</a></li>
                                 <li><a href="/home/contact">Contact us</a></li>
                                 <li><a href="/home/about">About</a></li>
                                 <li><a href="/user/logout">Logout</a></li>
