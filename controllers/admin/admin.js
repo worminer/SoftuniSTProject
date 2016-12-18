@@ -1,7 +1,9 @@
 const userController = require('./user');
-const categoryController = require('./category');
-
+const genreController = require('./genre');
+const movieController = require('./movie');
 module.exports = {
     user: userController,
-    category: categoryController
+    genre: genreController,
+    movie: movieController
+
 };

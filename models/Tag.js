@@ -8,13 +8,18 @@ let tagSchema = mongoose.Schema({
 tagSchema.method({
     prepareInsert: function () {
         let Movie = mongoose.model('Movie');
-        for (let article of this.movies) {
-            Movie.findById(article).then(movie => {
+        for (let movie of this.movies) {
+            Movie.findById(movie).then(movie => {
                 if (movie.tags.indexOf(this.id) === -1) {
                     movie.tags.push(this.id);
                     movie.save();
                 }
-            })
+            }).catch((err) => {
+                if(err){
+                    console.log('Tag:PrepareInsert -> Movie');
+                    console.log(err.message);
+                }
+            });
         }
     },
     deleteMovie: function (movieId) {
@@ -46,7 +51,12 @@ module.exports.initializeTags = function (newTags, movieId) {
                         tag.save();
                     })
                 }
-            })
+            }).catch((err) => {
+                if(err){
+                    console.log('Tag:Initialize Tags -> find');
+                    console.log(err.message);
+                }
+            });
         }
     }
 };

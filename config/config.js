@@ -7,26 +7,28 @@ if(this.env == "development") {
     {
         rootFolder: path.normalize(path.join(__dirname, '/../')), // path to root folder
         connectionString: 'mongodb://localhost:27017/FilmCatalog', // db string
-        seedCategories: true, // if enabled will seed categories in db
+        seedCategories: false, // if enabled will seed categories in db
         titleOptions: {
             siteTitle: "BEMP TV MovieHub", // title to be shown in all pages
             LongTitles: true, // if enabled .. pages will show subTitle as "Title - SubTitle"
             titleSeparator: ' - '
         },
-
-        paginationOptions: { // Global options for the pagination
-
+        globalOptions:{
+            plotCharLimit: 300 // limits the chars for the plot for the movie previews
+        },
+        genreMenu: { // Global options for the the left side category menu
+            hideEmptyGenres: false //if enabled .. categories that have 0 items will not be drown
         },
 
         homeConfig:{ // config for homeController / index
             postLimit: 5 // limits the posts in the homepage
         },
-        categoriesConfig:{ // config for homeController / listCategoryMovies
-            postLimit: 1 // limits the posts in the listCategoryMovies
+        categoriesConfig:{ // config for homeController / listGenreMovies
+            postLimit: 5, // limits the posts in the listGenreMovies
         }
         ,
         tagConfig:{ // config for tagController / lisMoviesByTag
-            postLimit: 1 // limits the posts in the lisMoviesByTag
+            postLimit: 5, // limits the posts in the lisMoviesByTag
         }
 
     }
