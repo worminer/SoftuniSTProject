@@ -108,6 +108,11 @@
 .movie-rating-text {
   float: right !important;
 }
+
+.portret-style {
+  height: 420px;
+  padding: 5px;
+}
 /* sidebar bootstrap style */
 
 .nav-side-menu .toggle-btn {
