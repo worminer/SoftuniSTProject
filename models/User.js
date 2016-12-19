@@ -25,7 +25,7 @@ userSchema.method({
             return false;
         }
 
-        let isAuthor = movie.author.equals(this.id);
+        let isAuthor = movie.added_by.equals(this.id);
         return isAuthor;
     },
     isInRole: function (roleName) {

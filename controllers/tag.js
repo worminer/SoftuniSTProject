@@ -4,7 +4,6 @@ const Movie = require('mongoose').model('Movie');
 const Tag = require('mongoose').model('Tag');
 const User = mongoose.model('User');
 const Category = mongoose.model('Genre');
-const paginate = require('express-paginate');
 
 module.exports = {
     lisMoviesByTag: (req, res) => {

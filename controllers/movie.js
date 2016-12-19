@@ -1,9 +1,10 @@
 const Movie = require('mongoose').model('Movie');
-const Category = require('mongoose').model('Genre');
+const Genre = require('mongoose').model('Genre');
+const util = require('./../utilities/utilities');
 //TODO: see witch constants are deprecated and remove them!
 const initializeTags = require('./../models/Tag').initializeTags;
 const imdb = require('imdb-api');
-const util = require('./../utilities/utilities')
+
 
 module.exports = {
 
@@ -25,27 +26,34 @@ module.exports = {
 
     details: (req, res) => {
         let id = req.params.id;
-
-        Movie.findById(id).populate('tags').then(movie => {
+        let populateQuery = [
+            {path: 'added_by',select: 'fullName'},
+            {path: 'genres',  select: 'name'},
+            {path: 'tags',    select: 'name'}
+        ];
+        Movie.findById(id).populate(populateQuery).then(movie => {
 
             let subTitle = 'Details for ' + movie.title + ' Movie. ';
-
+            let movies = [];
+            movies.push(movie);
             if (!req.user) {
                 res.render('movie/details', {
                     subTitle: subTitle,
-                    movie: movie,
-                    isUserAuthorized: false}
-                    );
+                    movies: movies,
+                    isUserAuthorized: false,
+                    showDetailedArticle: true
+                });
                 return;
             }
 
             req.user.isInRole('Admin').then(isAdmin => {
-                let isUserAuthorized = isAdmin || req.user.isAuthor(movie);
-
+                let isUserAuthorized = isAdmin;
+                //console.log(isUserAuthorized);
                 res.render('movie/details', {
                     subTitle: subTitle,
-                    movie: movie,
-                    isUserAuthorized: isUserAuthorized
+                    movies: movies,
+                    isUserAuthorized: isUserAuthorized,
+                    showDetailedArticle: true
                 });
             })
         })

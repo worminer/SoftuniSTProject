@@ -53,6 +53,7 @@ module.exports = (app) => {
     });
 
     // movie controller stuff
+    app.get('/admin/movie/all/', adminController.movie.showAll);
     app.get('/admin/movie/imdb/', adminController.movie.imdbIndexGet);
 
     app.get('/admin/movie/imdb/name/', adminController.movie.imdbIndexGet);

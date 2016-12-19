@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Movie = mongoose.model('Movie');
 const User = mongoose.model('User');
 const Genre = mongoose.model('Genre');
-const paginate = require('express-paginate');
+const util = require('./../utilities/utilities');
 
 module.exports = {
     index: (req, res) => {
@@ -81,8 +81,8 @@ module.exports = {
                         for (let i = 1; i <= pagesInfo.pages; i++) {
                             pageArr.push(i)
                         }
-
-
+                        //we limit the character in plot to the configurated limit
+                        pagesInfo.docs = util.limitCharsLenInMongooseObj(pagesInfo.docs,'plot',config.globalOptions.plotCharLimit);
                         res.render('home/movies', {
                             subTitle: 'List of all movie in ' + genres.name + ' category!', // subTitle
                             movies: pagesInfo.docs, // the movie..
@@ -107,29 +107,5 @@ module.exports = {
 
             });
         });
-        //
-        //Genre.findById(id).populate('movie').then(category => {
-        //     User.populate(category.movie, {path: 'author'}, (err) => {
-        //         if (err) {
-        //             console.log('home - listGenreMovies -> populate authors')
-        //             console.log(err);
-        //         }
-        //         Movie.populate(category.movie,{path: 'tags'},(err) =>{
-        //             if (err) {
-        //                 console.log('home - listGenreMovies -> tags')
-        //                 console.log(err);
-        //             }
-        //             Genre.find({}).then(categories => {
-        //                 res.render('home/movies', {
-        //                     subTitle: 'List of all movie in ' + category.name + ' category!',
-        //                     movie: category.movie,
-        //                     categories: categories,
-        //                 });
-        //             })
-        //         });
-        //
-        //
-        //     })
-        // })
     }
 };

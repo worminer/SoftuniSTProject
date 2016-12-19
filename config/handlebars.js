@@ -3,6 +3,9 @@ const categoriesMenu = require('./../views/partials/categories_menu.hbs');
 const moviesPreview = require('./../views/partials/movies_preview.hbs');
 const imdbAddMovieForm = require('./../views/partials/imdb_add_movie_form.hbs');
 const crudMovieForm = require('./../views/partials/crud_movie_form.hbs');
+const util = require('./../utilities/utilities');
+
+
 module.exports = () => {
     //Partials
     Handlebars.registerPartial('categoriesMenu', categoriesMenu); // categories side menu
@@ -30,14 +33,32 @@ module.exports = () => {
         return options.fn(value * multiplayer);
     });
 
+    Handlebars.registerHelper('firstOrRandom', function(array ,randomize) {
+        let result;
+        if(typeof array === 'undefined'){
+            array = [];
+            console.log("handlebar helper: firstOrRandom -> array is undefined at handlebars helper!");
+        }
+        if(typeof randomize === 'undefined'){
+            randomize = false;
+        }
+        if(randomize){
+            let randomTrailerId = util.randomIntFromInterval(0,array.length-1);
+            result = array[randomTrailerId];
+        }else {
+            result = array[0];
+        }
+        return result;
+    });
+
     Handlebars.registerHelper('dotdotdot', function(str ,len) {
         if(typeof str === 'undefined'){
             str = '';
-            console.log("handlebar helper: dotdotdot -> str is undefined");
+            console.log("handlebar helper: dotdotdot -> str is undefined at handlebars helper!");
         }
         if(typeof len === 'undefined'){
           len = 10;
-          console.log("handlebar helper: dotdotdot -> len is undefined");
+          console.log("handlebar helper: dotdotdot -> len is undefined at handlebars helper!");
         }
         if(len <=10){
           len = 10

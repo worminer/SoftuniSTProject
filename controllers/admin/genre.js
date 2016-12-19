@@ -1,31 +1,31 @@
-const Category = require('mongoose').model('Genre');
+const Genre = require('mongoose').model('Genre');
 
 module.exports = {
     all: (req, res) => {
-        Category.find({}).then(categories => {
-            res.render('admin/category/all', {
+        Genre.find({}).then(genres => {
+            res.render('admin/genre/all', {
                 subTitle: 'List of all Categories!',
-                categories: categories
+                genres: genres
             });
         })
     },
 
     createGet: (req, res) => {
-        res.render('admin/category/create',{
+        res.render('admin/genre/create',{
             subTitle: 'Create new Genre!'
         })
     },
 
     createPost: (req, res) => {
-        let categoryArgs = req.body;
+        let genreArgs = req.body;
 
-        if (!categoryArgs) {
+        if (!genreArgs) {
             let errorMsg = 'Genre can not be null';
-            categoryArgs.error = errorMsg;
-            res.render('admin/category/create', categoryArgs);
+            genreArgs.error = errorMsg;
+            res.render('admin/genre/create', genreArgs);
         } else {
-            Category.create(categoryArgs).then(category => {
-                res.redirect('/admin/category/all');
+            Genre.create(genreArgs).then(genre => {
+                res.redirect('/admin/genre/all');
             })
         }
     },
@@ -33,10 +33,10 @@ module.exports = {
     editGet: (req, res) => {
         let id = req.params.id;
 
-        Category.findById(id).then(category => {
-            res.render('admin/category/edit', {
-                subTitle: 'Edit ' + category.name + ' Genre!',
-                category: category
+        Genre.findById(id).then(genre => {
+            res.render('admin/genre/edit', {
+                subTitle: 'Edit ' + genre.name + ' Genre!',
+                genre: genre
             });
 
         })
@@ -50,17 +50,17 @@ module.exports = {
         if (!editArgs.name) {
             let errorMsg = 'Genre can not be empty';
 
-            Category.findById(id).then(category => {
-                res.render('admin/category/edit', {category: category, error: errorMsg});
+            Genre.findById(id).then(genre => {
+                res.render('admin/genre/edit', {genre: genre, error: errorMsg});
             });
         } else {
-            Category.findById(id).then(category => {
-                category.prepareDelete();
-                category.save();
+            Genre.findById(id).then(genre => {
+                genre.prepareDelete();
+                genre.save();
             });
 
-            Category.findOneAndUpdate({_id: id}, {name: editArgs.name}).then(category => {
-                res.redirect('/admin/category/all');
+            Genre.findOneAndUpdate({_id: id}, {name: editArgs.name}).then(genre => {
+                res.redirect('/admin/genre/all');
             })
         }
     },
@@ -68,10 +68,10 @@ module.exports = {
     deleteGet: (req, res) => {
         let id = req.params.id;
 
-        Category.findById(id).then(category => {
-            res.render('admin/category/delete', {
-                subTitle: 'Delete ' + category.name +' Genre!',
-                category: category
+        Genre.findById(id).then(genre => {
+            res.render('admin/genre/delete', {
+                subTitle: 'Delete ' + genre.name +' Genre!',
+                genre: genre
             });
         })
     },
@@ -79,9 +79,9 @@ module.exports = {
     deletePost: (req, res) => {
         let id = req.params.id;
 
-        Category.findOneAndRemove({_id: id}).then(category => {
-            category.prepareDelete();
-            res.redirect('/admin/category/all');
+        Genre.findOneAndRemove({_id: id}).then(genre => {
+            genre.prepareDelete();
+            res.redirect('/admin/genre/all');
         });
     }
 };
