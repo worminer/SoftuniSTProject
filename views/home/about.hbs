@@ -7,42 +7,17 @@
             </h2>
             <hr>
         </div>
-        <div class="col-sm-4 text-center post-inner portret-style">
-            <img class="img-responsive" src="/images/ted.jpg" alt=""/>
-            <h3>Theodora
-                <small>developer</small>
-            </h3>
-        </div>
-        <div class="col-sm-4 text-center post-inner portret-style">
-        <img class="img-responsive" src="/images/boris.jpg" alt=""/>
-        <h3>Boris
-            <small>developer</small>
-        </h3>
-    </div>
-        <div class="col-sm-4 text-center post-inner portret-style">
-            <img class="img-responsive" src="/images/emo.jpg" alt=""/>
-            <h3>Emo
-                <small>developer</small>
-            </h3>
-        </div>
-        <div class="col-sm-4 text-center post-inner portret-style">
-            <img class="img-responsive" src="/images/Petio.jpg" alt=""/>
-            <h3>Petio
-                <small>developer</small>
-            </h3>
-        </div>
-        <div class="col-sm-4 text-center post-inner portret-style">
-            <img class="img-responsive" src="/images/venci.jpg" alt=""/>
-            <h3>Venci
-                <small>developer</small>
-            </h3>
-        </div>
-        <div class="col-sm-4 text-center post-inner portret-style">
-            <img class="img-responsive" src="/images/marti.jpg" alt="" />
-            <h3>Marto
-                <small>developer</small>
-            </h3>
-        </div>
+        {{#each developersInfo}}
+            <div class="col-sm-4 portret-container">
+                <div class=" text-center post-inner portret-style">
+                    <img class="img-responsive" src="{{this.picture}}" alt=""/>
+                    <h3>{{this.name}}
+                        <small>{{this.jobTitle}}</small>
+                    </h3>
+                </div>
+            </div>
+
+        {{/each}}
         <div class="clearfix"></div>
     </div>
 </div>

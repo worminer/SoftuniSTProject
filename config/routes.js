@@ -25,9 +25,6 @@ module.exports = (app) => {
 
     app.get('/movie/details/:id', movieController.details); // Public movie detail
 
-    // middleware that allows only admins to work with those routes
-
-
 
     app.get('/home/about',homeController.about);
 
@@ -35,9 +32,11 @@ module.exports = (app) => {
 
 
     app.get('/movie/search',movieController.searchGet);
+    app.get('/movie/search/:movieTitle/:page',movieController.searchPost);
+    app.post('/movie/search',movieController.searchPost);
 
 
-
+// middleware that allows only admins to work with those routes
     app.use((req, res, next) => {
         if (req.isAuthenticated()) {
             req.user.isInRole('Admin').then(isAdmin => {

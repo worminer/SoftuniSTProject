@@ -30,6 +30,9 @@ if(this.env == "development") {
         },
         categoriesConfig:{ // config for homeController / listGenreMovies
             postLimit: 5, // limits the posts in the listGenreMovies
+        },
+        searchConfig:{ // config for homeController / listGenreMovies
+            postLimit: 5, // limits the posts in the listGenreMovies
         }
         ,
         tagConfig:{ // config for tagController / lisMoviesByTag
