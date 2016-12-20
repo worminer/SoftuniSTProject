@@ -26,7 +26,7 @@ if(this.env == "development") {
         },
 
         homeConfig:{ // config for homeController / index
-            postLimit: 5 // limits the posts in the homepage
+            scrollerImages: 10 // limits the posts in the homepage
         },
         categoriesConfig:{ // config for homeController / listGenreMovies
             postLimit: 5, // limits the posts in the listGenreMovies

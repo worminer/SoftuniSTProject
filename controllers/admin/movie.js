@@ -89,7 +89,9 @@ module.exports = {
         MovieData.countries = util.splitByComma(MovieData.countries);   // movie country
         MovieData.awards = util.splitByComma(MovieData.awards);       // movie awards
         MovieData.youtube_trailers = util.arrayIfNeeded(MovieData.youtube_trailers); // makes the youtube trailers to array if the result is only 1
-        MovieData.youtube_trailers = util.splitByComma(MovieData.youtube_trailers_str); // adding the trailers from the text form (manual added ones)
+        //console.log(MovieData.youtube_trailers);
+        MovieData.youtube_trailers.concat(util.splitByComma(MovieData.youtube_trailers_str)); // adding the trailers from the text form (manual added ones)
+        //console.log(MovieData.youtube_trailers);
         Movie.findOne({title:MovieData.title}).then(movie => {
 
             if(movie){

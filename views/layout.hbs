@@ -35,19 +35,19 @@
 </head>
 <body>
 <header>
-<!--
+
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="pull-right">
-                        <a href="http://facebook.com/" class="facebook-ico"><span></span>Facebook</a>
-                        <a href="http://twitter.com" class="twitter-ico"><span></span>Twitter</a>
-                        <a href="http://Linkedin.com" class="linkedin-ico"><span></span>Linkedin</a>
-                </div>
+            <div class="col-md-12" style="height: 25px">
+                <div class="pull-right socials">
+                    <a href="http://facebook.com" class="facebook-ico">facebook-ico</a>
+                    <a href="http://twitter.com" class="twitter-ico">twitter-ico</a>
+                    <a href="http://youtube.com" class="you-tube-ico">you-tube-ico</a>
+                    <a href="https://www.linkedin.com" class="linkedin-ico">linkedin-ico</a>
                 </div>
             </div>
         </div>
--->
+    </div>
 
     <div class="container">
         <div class="row">
@@ -75,27 +75,29 @@
                                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                             role="button" aria-expanded="false">Admin<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/admin/movie/all">Movie: List all movies</a></li>
+                                            <li><a href="/admin/movie/create">Movie: Add new movie</a></li>
+                                            <li><a href="/admin/movie/imdb/">Movie: Add New Movie from imdb</a></li>
+                                            <li class="divider"></li>
                                             <li><a href="/admin/user/all">Users</a></li>
                                             <li><a href="/admin/genre/all">Categories</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                            role="button" aria-expanded="false">Movie Manager<span class="caret"></span></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/admin/movie/create">Add New Movie</a></li>
-                                            <li><a href="/admin/movie/imdb/">Add New Movie from imdb</a></li>
-                                        </ul>
-                                    </li>
-
                                 {{/if}}
 
-                                <li><a href="/user/details">Welcome({{user.email}})</a></li>
-                                <li><a href="/article/create">New Article</a></li>
                                 <li><a href="/movie/search">Search</a></li>
-                                <li><a href="/home/contact">Contact us</a></li>
-                                <li><a href="/home/about">About</a></li>
-                                <li><a href="/user/logout">Logout</a></li>
 
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                        role="button" aria-expanded="false">about<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/home/contact">Contact US</a></li>
+                                        <li><a href="/home/about">About US</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/user/logout">Logout</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-left">
+                                <li><a href="/user/details"><span class="glyphicon glyphicon-user"></span></a></li>
                             </ul>
                         </div>
                     {{/if}}
@@ -104,12 +106,13 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="/user/register">Register</a></li>
                                 <li><a href="/user/login">Login</a></li>
-                                <li><a href="/home/contact">Contact us</a></li>
-                                <li><a href="/home/about">About</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-left">
 
                             </ul>
                         </div>
                     {{/unless}}
+
 
                 </div>
             </div>

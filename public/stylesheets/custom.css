@@ -113,6 +113,10 @@
   height: 420px;
   padding: 5px;
 }
+.img-full {
+  margin: 0 auto;
+  height: 1000px !important;
+}
 /* sidebar bootstrap style */
 
 .nav-side-menu .toggle-btn {
@@ -130,6 +134,9 @@
 }
 
 @media (max-width: 992px) {
+  .post-inner{
+    height: 1100px;
+  }
   .right-sm {
     float: none;
   }
@@ -143,6 +150,9 @@
 }
 
 @media (max-width: 767px) {
+  .post-inner{
+    height: 1300px;
+  }
   .logo-left-top
   {
     display: block;

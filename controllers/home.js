@@ -13,12 +13,47 @@ module.exports = {
                 {path: 'categories', select: 'name'},
                 {path: 'tags',     select: 'name'}
             ];
-            Movie.find({}).limit(config.homeConfig.postLimit).populate(populateQuery).then(movies => {
+            Movie.find({},'poster_url youtube_trailers').populate(populateQuery).then(movies => {
+                //console.log(movies);
+                let firstMovie = [];
+                let sliderMovies = [];
+                let sliderButtons = [];
+                //console.log(movies);
+                //util.getFieldToArr(movies,'poster_url);
+                let firstMovieIndex = util.randomIntFromInterval(0,movies.length -1);
+                firstMovie = movies[firstMovieIndex] ;
+                //console.log(firstMovie);
+                delete  movies[firstMovieIndex];
+                //console.log(movies);
+
+
+
+
+
+
+                if(movies.length < config.homeConfig.scrollerImages -1 ){
+                    sliderMovies = movies;
+                    for (let i = 1; i < sliderMovies.length + 1; i++) {
+                        sliderButtons.push(i);
+                    }
+                }else {
+                    for (let i = 0; i < config.homeConfig.scrollerImages -1; i++) {
+                        let movieIndex = util.randomIntFromInterval(0,movies.length -1);
+                        sliderMovies = movies[movieIndex];
+                        delete movies[movieIndex];
+                    }
+                    for (let i = 1; i < sliderMovies.length + 1; i++) {
+                        sliderButtons.push(i);
+                    }
+                }
+                //console.log(sliderMovies);
 
                 res.render('home/index', {
                     subTitle: 'Home',
-                    categories: categories,
-                    movies:movies
+                    categories:  categories,
+                    firstMovie:  firstMovie,
+                    sliderMovies: sliderMovies,
+                    sliderButtons: sliderButtons
                 });
             })
         })
