@@ -26,11 +26,6 @@ module.exports = {
                 delete  movies[firstMovieIndex];
                 //console.log(movies);
 
-
-
-
-
-
                 if(movies.length < config.homeConfig.scrollerImages -1 ){
                     sliderMovies = movies;
                     for (let i = 1; i < sliderMovies.length + 1; i++) {
