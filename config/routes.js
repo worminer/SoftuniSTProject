@@ -96,4 +96,5 @@ module.exports = (app) => {
     app.get('/comment/create/:id',commentController.commentGet);
     app.post('/comment/create/:id',commentController.commentPost);
 
+    app.get('/comment/all/:id',commentController.allGet);
 };

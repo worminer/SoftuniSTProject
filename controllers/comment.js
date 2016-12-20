@@ -23,5 +23,15 @@ module.exports={
                 res.redirect(`/movie/details/${id}`);
             })
         })
+    },
+
+    allGet:(req,res)=>{
+        let id=req.params.id;
+
+        Movie.findById(id).populate('author tags comments').then(movie=>{
+            Comment.find({'about':id}).populate('author').then(comments=>{
+                res.render('comment/all',{movie: movie,comments: comments});
+            })
+        })
     }
 };
