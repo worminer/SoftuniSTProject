@@ -3,6 +3,7 @@ const adminController = require('./../controllers/admin/admin');
 const userController = require('./../controllers/user');
 const movieController = require('./../controllers/movie');
 const tagController = require('./../controllers/tag');
+const commentController = require('./../controllers/comment');
 
 module.exports = (app) => {
 
@@ -90,4 +91,9 @@ module.exports = (app) => {
 
     app.get('/admin/genre/delete/:id', adminController.genre.deleteGet);
     app.post('/admin/genre/delete/:id', adminController.genre.deletePost);
+
+    //comment controller staff
+    app.get('/comment/create/:id',commentController.commentGet);
+    app.post('/comment/create/:id',commentController.commentPost);
+
 };

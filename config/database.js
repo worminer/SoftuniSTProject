@@ -24,4 +24,5 @@ module.exports = (config) => {
     }
     require('./../models/Movie');
     require('./../models/Tag');
+    require('./../models/Comment');
 };

@@ -26,7 +26,8 @@ let movieSchema = mongoose.Schema(
         added_by: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},  // who added this movie
         genres: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Genre'}], // Genres referenced as genre
         tags: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Tag'}],     //tags
-        date: {type: Date, default: Date.now()} // date added in db
+        date: {type: Date, default: Date.now()},// date added in db
+        comments: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Comment'}]
     });
 
 movieSchema.plugin(mongoosePaginate);
