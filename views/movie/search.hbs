@@ -1,44 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        input[type=text] {
-            width: 130px;
-            box-sizing: border-box;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: white;
-            background-image: url('/images/searchh.ico');
-            background-position: 10px 10px;
-            background-repeat: no-repeat;
-            margin-left: 500px;
-            padding: 12px 20px 12px 40px;
-            -webkit-transition: width 0.4s ease-in-out;
-            transition: width 0.4s ease-in-out;
-        }
-
-        input[type=text]:focus {
-            width: 40%;
-        }
-    </style>
-</head>
-<body>
-
+<!-- Side menu and Content-->
 <div class="container">
+    <div class="row ">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 padding-right-0">
+            <!-- sidebar -->
+            {{> categoriesMenu}}
+            <!-- end of sidebar -->
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 ">
+            <section class="content">
+                <div class="well">
+                    <form class="form-horizontal" method="post" action="/movie/search">
+                        <fieldset>
+                            <legend class="text-center">
+                                <h1><strong>Describe a movie</strong></h1>
+                                <h2>Search movies by title. We find movies for you .</h2>
+                            </legend>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label " for="search">Movie Title</label>
+                                <div class="col-sm-4">
+                                    <div class="inner-addon left-addon">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                        <input type="text" class="form-control search-bar" id="inputEmail" placeholder="search" name="movieTitle"
+                                               required value={{movieTitle}}>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="submit" class="btn btn-primary "><span class="glyphicon glyphicon-search">&nbsp;Search</span></button>
+                                </div>
+                            </div>
 
-    <div class="well">
+                        </fieldset>
+                    </form>
+                    <hr class="tagline-divider">
+                </div>
+                <!-- content -->
+                {{> moviesPreview}}
+                <!-- end of content -->
+            </section>
 
-    <form>
-      <center>  <h1><strong>Describe a movie</strong></h1>
-    <h2>Search by titles of movies. We find movies for you .</h2></center>
-    <input type="text" name="search" placeholder="Search..">
-        <img src="/images/movie time.jpg" alt=""  style="width:1100px;height:600px; margin-center: 100px;">
-    </form>
 
+        </div>
+    </div>
+    <div>
 
     </div>
+    {{#if movies}}
+        <div class="row center-content">
+            <div class="pagination col-md-12 ">
+                <ul>
+                    {{#unless paginationInfo.isOnFistPage}}
+                        <li class="laquo"><a href="/movie/search/{{movieTitle}}/{{paginationInfo.previousPage}}"><span></span></a></li>
+                    {{/unless}}
+
+
+                    {{#each paginationInfo.pagesArr }}
+
+                        <li  {{#equal this ../paginationInfo.currentPage}}class="active"{{/equal}} ><a href="/movie/search/{{../movieTitle}}/{{this}}">{{this}}</a></li>
+                    {{/each}}
+
+                    {{#unless paginationInfo.isOnLastPage}}
+                        <li class="raquo"><a href="/movie/search/{{movieTitle}}/{{paginationInfo.nextPage }}"><span></span></a></li>
+                        <li class="dots">. . .</li>
+                        <li><a href="/movie/search/{{genreId}}/{{paginationInfo.pages }}">last page({{paginationInfo.pages}})</a></li>
+                    {{/unless}}
+
+                </ul>
+            </div>
+        </div>
+    {{/if}}
 </div>
-</body>
-</html>
+
 

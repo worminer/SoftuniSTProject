@@ -62,7 +62,16 @@ module.exports = {
         res.render('home/contact');
     },
     about:(req, res) =>{
-        res.render('home/about');
+        let developersInfo = [];
+        developersInfo.push({name:'Theodora',   picture:'/images/ted.jpg',  jobTitle:'Developer'});
+        developersInfo.push({name:'Boris',      picture:'/images/boris.jpg',jobTitle:'Developer'});
+        developersInfo.push({name:'Emo',        picture:'/images/emo.jpg',  jobTitle:'Developer'});
+        developersInfo.push({name:'Petio',      picture:'/images/Petio.jpg',jobTitle:'Developer'});
+        developersInfo.push({name:'Venci',      picture:'/images/venci.jpg',jobTitle:'Developer'});
+        developersInfo.push({name:'Marto',      picture:'/images/marti.jpg',jobTitle:'Developer'});
+        res.render('home/about',{
+            developersInfo:developersInfo
+        });
     },
 
     listGenreMovies: (req, res) => {
