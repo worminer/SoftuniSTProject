@@ -22,7 +22,7 @@ if(this.env == "development") {
             showRandomTrailer: true // if enabled will display random trailer at the movie previews
         },
         genreMenu: { // Global options for the the left side category menu
-            hideEmptyGenres: false //if enabled .. categories that have 0 items will not be drown
+            hideEmptyGenres: true //if enabled .. categories that have 0 items will not be drown
         },
 
         homeConfig:{ // config for homeController / index

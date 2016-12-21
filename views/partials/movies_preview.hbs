@@ -89,7 +89,51 @@
                 </footer>
                 <!-- end of post-cnt -->
             </div>
+
             <!-- post-inner -->
         </article>
     </div>
+    <!-- comment section -->
+
+    {{#if ../showDetailedArticle}}
+        <div class="col-md-12 well">
+            <form class="form-horizontal" id="comment" method="POST" action="/comment/create/{{../this.id}}">
+                <fieldset>
+                    <legend>Add your comment for this movie</legend>
+                    <div class="form-group">
+                        <input type="text" value="{{../user.id}}" name="author" hidden>
+                        <input type="text" value="{{../this.id}}" name="about" hidden>
+
+                        <label class="col-sm-2 control-label" for="content">Your Comment:</label>
+                        <div class="col-sm-9 ">
+                            <textarea type="text" rows="1" class="form-control" id="content" placeholder="Comment" name="content"></textarea>
+                        </div>
+                        <div class="col-sm-1 ">
+                            <button type="submit" class="btn btn-success">Post</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+        {{#if this.comments}}
+            {{#each this.comments}}
+                <div class="col-md-12 well">
+                    <div class="col-md-1 comment-user-icon-container">
+                        <span class="glyphicon glyphicon-user comment-user-icon"></span>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="author-style">
+                            <span>&nbsp;{{this.author.fullName}}&nbsp;</span>
+                            <span>  - Whiten at: &nbsp;{{this.formatedDate}}</span>
+                        </div>
+                        <hr class="tagline-divider">
+                        <div class="comment-style">
+                            {{this.content}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        {{/if}}
+    {{/if}}
 {{/each}}

@@ -36,6 +36,12 @@ module.exports = (app) => {
     app.get('/movie/search/:movieTitle/:page',movieController.searchPost);
     app.post('/movie/search',movieController.searchPost);
 
+//comment controller staff
+    app.get('/comment/create/:id',commentController.commentGet);
+    app.post('/comment/create/:id',commentController.commentPost);
+
+    app.get('/comment/all/:id',commentController.allGet);
+
 
 // middleware that allows only admins to work with those routes
     app.use((req, res, next) => {
@@ -92,9 +98,5 @@ module.exports = (app) => {
     app.get('/admin/genre/delete/:id', adminController.genre.deleteGet);
     app.post('/admin/genre/delete/:id', adminController.genre.deletePost);
 
-    //comment controller staff
-    app.get('/comment/create/:id',commentController.commentGet);
-    app.post('/comment/create/:id',commentController.commentPost);
 
-    app.get('/comment/all/:id',commentController.allGet);
 };

@@ -1,6 +1,7 @@
 const config = require('./../config/config');
 const Movie = require('mongoose').model('Movie');
 const Genre = require('mongoose').model('Genre');
+const Comment = require('mongoose').model('Comment');
 const util = require('./../utilities/utilities');
 //TODO: see witch constants are deprecated and remove them!
 const initializeTags = require('./../models/Tag').initializeTags;
@@ -126,9 +127,34 @@ module.exports = {
         let populateQuery = [
             {path: 'added_by',select: 'fullName'},
             {path: 'genres',  select: 'name'},
+            {path: 'comments',
+                populate: {
+                    path: 'author'
+                }
+            },
             {path: 'tags',    select: 'name'}
         ];
         Movie.findById(id).populate(populateQuery).then(movie => {
+            for (let i = 0; i < movie.comments.length; i++) {
+
+                let date = new Date(movie.comments[i].dateCreated);  // dateStr you get from mongodb
+                //console.log(date.getDate());
+                movie.comments[i].formatedDate =
+                    date.getFullYear()
+                    + '-' +
+                    date.getDate()
+                    + '-' +
+                    date.getDay()
+                    + ' ' +
+                    date.getHours()
+                    + ':' +
+                    date.getMinutes()
+                    + ':' +
+                    date.getSeconds()
+                ;
+
+            }
+
 
             let subTitle = 'Details for ' + movie.title + ' Movie. ';
             let movies = [];
