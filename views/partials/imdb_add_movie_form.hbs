@@ -56,6 +56,28 @@
             </div>
         </div>
 
+        <div class="form-group"><label class="col-sm-4 control-label" for="youtube_trailers_str">Manually add youtube trailers: <br/>(only id's ,separated by comma)</label>
+            <div class="col-sm-4 ">
+                <input type="text" class="form-control" id="youtube_trailers_str" value="{{movieData.youtube_trailers_str}}" name="youtube_trailers_str">
+            </div>
+        </div>
+
+        {{#each movieData.youtubeResults}}
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-4 control-label">Is this a valid Trailer ?</label>
+            <div class="col-sm-8">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="col-md-1"  name="youtube_trailers" value="{{this.id.videoId}}" checked>
+                    </label>
+
+                    <div class="col-md-11 trailer-holder-container pull-right">
+                        <iframe class="trailer-holder" width="100%" height="315" src="https://www.youtube.com/embed/{{this.id.videoId}}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
         <div class="form-group"><label class="col-sm-4 control-label" for="languages">Movie languages:</label>
             <div class="col-sm-4 ">
                 <input type="text" class="form-control" id="languages" value="{{movieData.languages}}" name="languages" required>

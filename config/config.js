@@ -13,17 +13,25 @@ if(this.env == "development") {
             LongTitles: true, // if enabled .. pages will show subTitle as "Title - SubTitle"
             titleSeparator: ' - '
         },
+        youtubeOptions:{
+            apiKey: 'AIzaSyBfpJz2T3f1SVEoX2HgtcAEaN1Vj4XJ-RA',
+            resultsCount: 2,
+        },
         globalOptions:{
-            plotCharLimit: 300 // limits the chars for the plot for the movie previews
+            plotCharLimit: 300, // limits the chars for the plot for the movie previews
+            showRandomTrailer: true // if enabled will display random trailer at the movie previews
         },
         genreMenu: { // Global options for the the left side category menu
             hideEmptyGenres: false //if enabled .. categories that have 0 items will not be drown
         },
 
         homeConfig:{ // config for homeController / index
-            postLimit: 5 // limits the posts in the homepage
+            scrollerImages: 10 // limits the posts in the homepage
         },
         categoriesConfig:{ // config for homeController / listGenreMovies
+            postLimit: 5, // limits the posts in the listGenreMovies
+        },
+        searchConfig:{ // config for homeController / listGenreMovies
             postLimit: 5, // limits the posts in the listGenreMovies
         }
         ,

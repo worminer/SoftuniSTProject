@@ -4,6 +4,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
+
+MongoStoreOptions = {mongooseConnection:mongoose.connection};
 
 module.exports = (app, config) => {
     // View engine setup.
@@ -18,7 +22,12 @@ module.exports = (app, config) => {
     app.use(cookieParser());
 
     // Session is storage for cookies, which will be de/encrypted with that 'secret' key.
-    app.use(session({secret: 's3cr3t5tr1ng', resave: false, saveUninitialized: false}));
+    app.use(session({
+        secret: 's3cr3t5tr1ng',
+        resave: false,
+        saveUninitialized: false,
+        store: new MongoStore(MongoStoreOptions)
+    }));
 
     // For user validation we will use passport module.
     app.use(passport.initialize());

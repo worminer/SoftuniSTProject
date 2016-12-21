@@ -5,6 +5,7 @@ let movieSchema = mongoose.Schema(
     {
         title: {type: String, required: true, unique: true},  //title
         plot: {type: String, required: true},   // movie plot
+        youtube_trailers: [{type: String , required: true}],
         directors:[{type: String}], // movie directors
         writers:[{type: String}], // movie writers
         actors:[{type: String}], // movie actors
@@ -23,9 +24,10 @@ let movieSchema = mongoose.Schema(
         runtime:{type: String}, // movie runtime
         media_type:{type: String}, // is it a movie,tv series or other .. for future filtering much ?
         added_by: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},  // who added this movie
-        genres: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Genre'}], // Genres referenced as category
+        genres: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Genre'}], // Genres referenced as genre
         tags: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Tag'}],     //tags
-        date: {type: Date, default: Date.now()} // date added in db
+        date: {type: Date, default: Date.now()},// date added in db
+        comments: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Comment'}]
     });
 
 movieSchema.plugin(mongoosePaginate);
@@ -44,18 +46,21 @@ movieSchema.method({
             }
         });
 
-        let Category = mongoose.model('Genre');
-        Category.findById(this.category).then(category => {
-            if (category) {
-                category.movies.push(this.id);
-                category.save();
-            }
-        }).catch((err) => {
-            if(err){
-                console.log('Movies:prepare insert -> Genre');
-                console.log(err.message);
-            }
-        });
+        let Genre = mongoose.model('Genre');
+        for (let i = 0; i < this.genres.length; i++) {
+            let genre = this.genres[i];
+            Genre.findById(genre).then(genre => {
+                if (genre) {
+                    genre.movies.push(this.id);
+                    genre.save();
+                }
+            }).catch((err) => {
+                if (err) {
+                    console.log('Movies:prepare insert -> Genre');
+                    console.log(err.message);
+                }
+            });
+        }
 
         let Tag = mongoose.model('Tag');
         for (let tagId of this.tags) {
@@ -86,18 +91,22 @@ movieSchema.method({
             }
         });
 
-        let Category = mongoose.model('Genre');
-        Category.findById(this.category).then(category => {
-            if (category) {
-                category.movies.remove(this.id);
-                category.save();
-            }
-        }).catch((err) => {
-            if(err){
-                console.log('Movies:prepare Delete -> Genre');
-                console.log(err.message);
-            }
-        });
+        let Genre = mongoose.model('Genre');
+        for (let i = 0; i < this.genres.length; i++) {
+            let genre = this.genres[i];
+            Genre.findById(genre).then(genre => {
+                if (genre) {
+                    genre.movies.remove(this.id);
+                    genre.save();
+                }
+            }).catch((err) => {
+                if(err){
+                    console.log('Movies:prepare Delete -> Genre');
+                    console.log(err.message);
+                }
+            });
+        }
+
 
         let Tag = mongoose.model('Tag');
         for (let tagId of this.tags) {

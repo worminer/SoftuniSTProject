@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Movie = mongoose.model('Movie');
 const User = mongoose.model('User');
 const Genre = mongoose.model('Genre');
-const paginate = require('express-paginate');
+const util = require('./../utilities/utilities');
 
 module.exports = {
     index: (req, res) => {
@@ -13,12 +13,42 @@ module.exports = {
                 {path: 'categories', select: 'name'},
                 {path: 'tags',     select: 'name'}
             ];
-            Movie.find({}).limit(config.homeConfig.postLimit).populate(populateQuery).then(movies => {
+            Movie.find({},'poster_url youtube_trailers').populate(populateQuery).then(movies => {
+                //console.log(movies);
+                let firstMovie = [];
+                let sliderMovies = [];
+                let sliderButtons = [];
+                //console.log(movies);
+                //util.getFieldToArr(movies,'poster_url);
+                let firstMovieIndex = util.randomIntFromInterval(0,movies.length -1);
+                firstMovie = movies[firstMovieIndex] ;
+                //console.log(firstMovie);
+                delete  movies[firstMovieIndex];
+                //console.log(movies);
+
+                if(movies.length < config.homeConfig.scrollerImages -1 ){
+                    sliderMovies = movies;
+                    for (let i = 1; i < sliderMovies.length + 1; i++) {
+                        sliderButtons.push(i);
+                    }
+                }else {
+                    for (let i = 0; i < config.homeConfig.scrollerImages -1; i++) {
+                        let movieIndex = util.randomIntFromInterval(0,movies.length -1);
+                        sliderMovies = movies[movieIndex];
+                        delete movies[movieIndex];
+                    }
+                    for (let i = 1; i < sliderMovies.length + 1; i++) {
+                        sliderButtons.push(i);
+                    }
+                }
+                //console.log(sliderMovies);
 
                 res.render('home/index', {
                     subTitle: 'Home',
-                    categories: categories,
-                    movies:movies
+                    categories:  categories,
+                    firstMovie:  firstMovie,
+                    sliderMovies: sliderMovies,
+                    sliderButtons: sliderButtons
                 });
             })
         })
@@ -27,7 +57,16 @@ module.exports = {
         res.render('home/contact');
     },
     about:(req, res) =>{
-        res.render('home/about');
+        let developersInfo = [];
+        developersInfo.push({name:'Theodora',   picture:'/images/ted.jpg',  jobTitle:'Developer'});
+        developersInfo.push({name:'Boris',      picture:'/images/boris.jpg',jobTitle:'Developer'});
+        developersInfo.push({name:'Emo',        picture:'/images/emo.jpg',  jobTitle:'Developer'});
+        developersInfo.push({name:'Petio',      picture:'/images/Petio.jpg',jobTitle:'Developer'});
+        developersInfo.push({name:'Venci',      picture:'/images/venci.jpg',jobTitle:'Developer'});
+        developersInfo.push({name:'Marto',      picture:'/images/marti.jpg',jobTitle:'Developer'});
+        res.render('home/about',{
+            developersInfo:developersInfo
+        });
     },
 
     listGenreMovies: (req, res) => {
@@ -81,8 +120,8 @@ module.exports = {
                         for (let i = 1; i <= pagesInfo.pages; i++) {
                             pageArr.push(i)
                         }
-
-
+                        //we limit the character in plot to the configurated limit
+                        pagesInfo.docs = util.limitCharsLenInMongooseObj(pagesInfo.docs,'plot',config.globalOptions.plotCharLimit);
                         res.render('home/movies', {
                             subTitle: 'List of all movie in ' + genres.name + ' category!', // subTitle
                             movies: pagesInfo.docs, // the movie..
@@ -107,29 +146,5 @@ module.exports = {
 
             });
         });
-        //
-        //Genre.findById(id).populate('movie').then(category => {
-        //     User.populate(category.movie, {path: 'author'}, (err) => {
-        //         if (err) {
-        //             console.log('home - listGenreMovies -> populate authors')
-        //             console.log(err);
-        //         }
-        //         Movie.populate(category.movie,{path: 'tags'},(err) =>{
-        //             if (err) {
-        //                 console.log('home - listGenreMovies -> tags')
-        //                 console.log(err);
-        //             }
-        //             Genre.find({}).then(categories => {
-        //                 res.render('home/movies', {
-        //                     subTitle: 'List of all movie in ' + category.name + ' category!',
-        //                     movie: category.movie,
-        //                     categories: categories,
-        //                 });
-        //             })
-        //         });
-        //
-        //
-        //     })
-        // })
     }
 };

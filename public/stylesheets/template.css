@@ -39,8 +39,21 @@ textarea { overflow: auto; }
 
 #wrapper { background: url(../images/wrapper.png) repeat-x 0 0; }
 .header { padding-top: 17px; position: relative; }
-.socials { position: absolute; top: 0; right: -10px; width: 85px; }
-.socials a { background: url(../images/socials.png) no-repeat 0 0; width: 19px; height: 19px; float: left; font-size: 0; line-height: 0; text-indent: -4000px; margin: -6px 7px 0 0; position: relative;
+.socials {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 125px;
+}
+.socials a { background: url(../images/socials.png) no-repeat 0 0;
+    width: 19px;
+    height: 19px;
+    float: left;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -4000px;
+    margin: -6px 7px 0 0;
+    position: relative;
     transition: margin 0.2s;
     -moz-transition: margin 0.2s;
     -webkit-transition: margin 0.2s;
@@ -48,6 +61,7 @@ textarea { overflow: auto; }
 }
 .socials a.facebook-ico { background-position: 0px 0; }
 .socials a.twitter-ico { background-position: -20px 0; }
+.socials a.linkedin-ico { background-position: -40px 0; }
 .socials a.you-tube-ico { background-position: -60px 0; }
 .socials a:hover { margin-top: 0; }
 

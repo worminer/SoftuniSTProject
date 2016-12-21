@@ -15,4 +15,11 @@ $(function() {
         $(this).prop('selected', $(this).prop('selected') ? false : true);
         return false;
     });
+
+    <!-- Script to Activate the Carousel -->
+
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+
 });

@@ -6,9 +6,17 @@ module.exports.splitByComma = (inputString) =>{
     });
 };
 
-module.exports.getFieldToArr = (inputData,fieldName) => {
+module.exports.getFieldToArr = (mongooseObj,fieldName) => {
+    if(typeof mongooseObj === 'undefined'){
+        mongooseObj = {};
+        console.log("utils getFieldToArr: mongooseObj is undefined");
+    }
+    if(typeof fieldName === 'undefined'){
+        fieldName = '';
+        console.log("utils getFieldToArr: fieldName is undefined");
+    }
     let arr = [];
-    inputData.filter(data => {
+    mongooseObj.filter(data => {
         arr.push(data[fieldName]);
     });
     return arr;
@@ -48,3 +56,45 @@ module.exports.arrayIfNeeded = (data)=> {
 
 
 }
+
+module.exports.dotdotdot = (str,len) => {
+    if(typeof str === 'undefined'){
+        str = '';
+        console.log("utils dotdotdot: dotdotdot -> str is undefined");
+    }
+    if(typeof len === 'undefined'){
+        len = 10;
+        console.log("utils dotdotdot: dotdotdot -> len is undefined");
+    }
+    if(len <=10){
+        len = 10
+    }
+    //console.log("handlebar helper: dotdotdot -> len is " + len);
+    if (str.length > len)
+        return str.substring(0,len) + '...';
+    return str;
+}
+
+module.exports.limitCharsLenInMongooseObj = (mongooseObj,tableName,len)=>{
+    if(typeof mongooseObj === 'undefined'){
+        mongooseObj = {};
+        console.log("limitCharsLenInMongooseObj: mongooseObj -> is undefined ");
+    }
+    if(typeof tableName === 'undefined'){
+        tableName = '';
+        console.log("limitCharsLenInMongooseObj: tableName -> is undefined");
+    }
+    if(typeof len === 'undefined'){
+        len = 0;
+        console.log("limitCharsLenInMongooseObj: len -> is undefined");
+    }
+
+    for (let i = 0; i < mongooseObj.length; i++) {
+        mongooseObj[i][tableName] = this.dotdotdot(mongooseObj[i][tableName],len);
+    }
+    return mongooseObj;
+}
+module.exports.randomIntFromInterval = (min,max) =>
+    {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }

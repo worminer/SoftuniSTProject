@@ -3,6 +3,7 @@ const adminController = require('./../controllers/admin/admin');
 const userController = require('./../controllers/user');
 const movieController = require('./../controllers/movie');
 const tagController = require('./../controllers/tag');
+const commentController = require('./../controllers/comment');
 
 module.exports = (app) => {
 
@@ -25,9 +26,6 @@ module.exports = (app) => {
 
     app.get('/movie/details/:id', movieController.details); // Public movie detail
 
-    // middleware that allows only admins to work with those routes
-
-
 
     app.get('/home/about',homeController.about);
 
@@ -35,9 +33,11 @@ module.exports = (app) => {
 
 
     app.get('/movie/search',movieController.searchGet);
+    app.get('/movie/search/:movieTitle/:page',movieController.searchPost);
+    app.post('/movie/search',movieController.searchPost);
 
 
-
+// middleware that allows only admins to work with those routes
     app.use((req, res, next) => {
         if (req.isAuthenticated()) {
             req.user.isInRole('Admin').then(isAdmin => {
@@ -53,6 +53,7 @@ module.exports = (app) => {
     });
 
     // movie controller stuff
+    app.get('/admin/movie/all/', adminController.movie.showAll);
     app.get('/admin/movie/imdb/', adminController.movie.imdbIndexGet);
 
     app.get('/admin/movie/imdb/name/', adminController.movie.imdbIndexGet);
@@ -90,4 +91,10 @@ module.exports = (app) => {
 
     app.get('/admin/genre/delete/:id', adminController.genre.deleteGet);
     app.post('/admin/genre/delete/:id', adminController.genre.deletePost);
+
+    //comment controller staff
+    app.get('/comment/create/:id',commentController.commentGet);
+    app.post('/comment/create/:id',commentController.commentPost);
+
+    app.get('/comment/all/:id',commentController.allGet);
 };
