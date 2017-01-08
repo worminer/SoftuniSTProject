@@ -14,7 +14,15 @@ commentSchema.method({
                 movie.comments.push(this.id);
                 movie.save()
             }
-        })
+        });
+
+        let User=require('mongoose').model('User');
+        User.findById(this.author).then(user => {
+            if(user){
+                user.comments.push(this.id);
+                user.save();
+            }
+        });
     },
     prepareDelete: function () {
         let Movie = require('mongoose').model('Movie');
@@ -23,7 +31,15 @@ commentSchema.method({
                 movie.comments.remove(this.id);
                 movie.save()
             }
-        })
+        });
+
+        let User=require('mongoose').model('User');
+        User.findById(this.author).then(user => {
+            if(user){
+                user.comments.remove(this.id);
+                user.save();
+            }
+        });
     }
 });
 

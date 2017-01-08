@@ -107,6 +107,21 @@ movieSchema.method({
             });
         }
 
+        let Comment = mongoose.model('Comment');
+        for (let i = 0; i < this.comments.length; i++) {
+            let comment = this.comments[i];
+            Comment.findById(comment).then(comment => {
+                if (comment) {
+                    comment.remove(this.id);
+                    comment.save();
+                }
+            }).catch((err) => {
+                if(err){
+                    console.log('Movies:prepare Delete -> Genre');
+                    console.log(err.message);
+                }
+            });
+        }
 
         let Tag = mongoose.model('Tag');
         for (let tagId of this.tags) {
@@ -123,6 +138,7 @@ movieSchema.method({
             });
         }
     },
+
     deleteTag: function (tagId) {
         this.tags.remove(tagId);
         this.save();

@@ -9,6 +9,7 @@ let userSchema = mongoose.Schema(
         fullName: {type: String, required: true},
         movies: {type: [mongoose.Schema.Types.ObjectId], ref: 'Movie'},
         roles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Role'}],
+        comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
         salt: {type: String, required: true}
     }
 );
@@ -43,6 +44,17 @@ userSchema.method({
             Role.findById(role).then(role => {
                 role.users.remove(this.id);
                 role.save();
+            })
+        }
+
+        let Comment = mongoose.model('Comment');
+        for (let i = 0; i < this.comments.length; i++) {
+            let comment = this.comments[i];
+            Comment.findById(comment).then(comment => {
+                if (comment) {
+                    comment.remove(this.id);
+                    comment.save();
+                }
             })
         }
 
@@ -84,6 +96,7 @@ module.exports.seedAdmin = () => {
                     email: email,
                     passwordHash: passwordHash,
                     fullName: 'Admin',
+                    comments: [],
                     movies: [],
                     salt: salt,
                     roles: roles
