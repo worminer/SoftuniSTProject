@@ -1,0 +1,44 @@
+<header class="header">
+    <h1 align="center">Comments of user: {{user.fullName}}</h1>
+</header>
+<body>
+<div class="container body-content">
+    <div class="well"><h2>All Comments</h2>
+        <div class="row">
+            <table class="table table-striped table-hover table-seperators">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Content</th>
+                    <th>Date Created</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each comments}}
+                        <tr>
+                            <td>{{ this.id }}</td>
+                            <td>{{ this.content }}</td>
+                            <td>{{ this.dateCreated }}</td>
+                            <td>
+                                <a href="/userPanel/edit/comment/{{this.id}}" class="btn btn-default btn-xs" >Edit</a>
+                                <a href="/userPanel/delete/comment/{{this.id}}" class="btn btn-default btn-xs" >Delete</a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    .header{
+        width:100%;
+        height:150px;
+        background-color:#9c3636;
+        text-align:center;
+        padding-top:35px;
+        margin-bottom: 30px;
+    }
+</style>

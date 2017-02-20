@@ -4,6 +4,7 @@ const userController = require('./../controllers/user');
 const movieController = require('./../controllers/movie');
 const tagController = require('./../controllers/tag');
 const commentController = require('./../controllers/comment');
+const userPanelController=require('./../controllers/userPanel');
 
 module.exports = (app) => {
 
@@ -17,6 +18,16 @@ module.exports = (app) => {
 
     app.get('/user/login', userController.loginGet); // Public get login page
     app.post('/user/login', userController.loginPost); // Public login the user
+
+    app.get('/userPanel/comments',userPanelController.commentsAllGet); //User Panel options show all comments by the user
+
+    //User Panel edit comment
+    app.get('/userPanel/edit/comment/:id',userPanelController.editGet);
+    app.post('/userPanel/edit/comment/:id',userPanelController.editPost);
+
+    //User Panel delete comment
+    app.get('/userPanel/delete/comment/:id',userPanelController.deleteGet);
+    app.post('/userPanel/delete/comment/:id',userPanelController.deletePost);
 
     app.get('/user/logout', userController.logout); // Public logout
 

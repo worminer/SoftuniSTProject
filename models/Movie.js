@@ -79,16 +79,24 @@ movieSchema.method({
     },
     prepareDelete: function () {
         let User = mongoose.model('User');
-        User.findById(this.author).then(user => {
-            if (user) {
+        for (let i=0; i < this.comments.length; i++){
+            let comment=this.comments[i];
+            let Comment=mongoose.model('Comment');
+            Comment.findById(comment).then(comment => {
+                User.findById(comment.author).then(user => {
+                    user.comments.remove(comment);
+                    user.save();
+                })
+            })
+        }
+        User.findById(this.added_by).then(user => {
+            if(user){
                 user.movies.remove(this.id);
                 user.save();
             }
         }).catch((err) => {
-            if(err){
-                console.log('Movies:prepare Delete -> user');
-                console.log(err.message);
-            }
+            console.log('Movies:prepare Delete -> user');
+            console.log(err.message);
         });
 
         let Genre = mongoose.model('Genre');
