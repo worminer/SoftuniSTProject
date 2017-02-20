@@ -56,5 +56,44 @@ module.exports={
             comment.prepareDelete();
             res.redirect('/userPanel/comments');
         })
+    },
+
+    changePasswordGet:(req,res) => {
+        let userId=req.user.id;
+
+        if(req.user){
+            User.findById(userId).then(user => {
+                res.render('userPanel/changePassword',{user:user});
+            })
+        }else{
+            res.redirect('/user/login/');
+        }
+    },
+
+    changePasswordPost:(req,res) => {
+        let userId=req.user.id;
+        let userArgs=req.body;
+
+        User.findById(userId).then(user => {
+            let errorMsg='';
+            if(userArgs.password != userArgs.confirmedPassword){
+                errorMsg = 'Passwords do not match';
+            }
+
+            if(errorMsg){
+                userArgs.error = errorMsg;
+                res.render('userPanel/changePassword',userArgs);
+            }else{
+                User.findById(userId).then(user => {
+                    if(userArgs.password){
+                        let passwordHash = encryption.hashPassword(userArgs.password, user.salt);
+                        user.passwordHash = passwordHash;
+                    }
+
+                    user.save();
+                    res.redirect('/');
+                })
+            }
+        })
     }
 };

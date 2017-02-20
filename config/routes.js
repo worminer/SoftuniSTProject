@@ -19,15 +19,17 @@ module.exports = (app) => {
     app.get('/user/login', userController.loginGet); // Public get login page
     app.post('/user/login', userController.loginPost); // Public login the user
 
+    //User Panel Stuff
     app.get('/userPanel/comments',userPanelController.commentsAllGet); //User Panel options show all comments by the user
 
-    //User Panel edit comment
-    app.get('/userPanel/edit/comment/:id',userPanelController.editGet);
-    app.post('/userPanel/edit/comment/:id',userPanelController.editPost);
+    app.get('/userPanel/edit/comment/:id',userPanelController.editGet); //User Panel edit comment get
+    app.post('/userPanel/edit/comment/:id',userPanelController.editPost); //User Panel edit comment post
 
-    //User Panel delete comment
-    app.get('/userPanel/delete/comment/:id',userPanelController.deleteGet);
-    app.post('/userPanel/delete/comment/:id',userPanelController.deletePost);
+    app.get('/userPanel/delete/comment/:id',userPanelController.deleteGet); //User Panel delete comment get
+    app.post('/userPanel/delete/comment/:id',userPanelController.deletePost); //User Panel delete comment post
+
+    app.get('/userPanel/changePassword/:id',userPanelController.changePasswordGet); //User Panel change password get
+    app.post('/userPanel/changePassword/:id',userPanelController.changePasswordPost); //User Panel change password post
 
     app.get('/user/logout', userController.logout); // Public logout
 
@@ -47,14 +49,14 @@ module.exports = (app) => {
     app.get('/movie/search/:movieTitle/:page',movieController.searchPost);
     app.post('/movie/search',movieController.searchPost);
 
-//comment controller staff
+    //comment controller staff
     app.get('/comment/create/:id',commentController.commentGet);
     app.post('/comment/create/:id',commentController.commentPost);
 
     app.get('/comment/all/:id',commentController.allGet);
 
 
-// middleware that allows only admins to work with those routes
+    // middleware that allows only admins to work with those routes
     app.use((req, res, next) => {
         if (req.isAuthenticated()) {
             req.user.isInRole('Admin').then(isAdmin => {
@@ -108,6 +110,4 @@ module.exports = (app) => {
 
     app.get('/admin/genre/delete/:id', adminController.genre.deleteGet);
     app.post('/admin/genre/delete/:id', adminController.genre.deletePost);
-
-
 };

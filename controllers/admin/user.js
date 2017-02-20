@@ -50,12 +50,12 @@ module.exports = {
             } else if (!userArgs.fullName) {
                 errorMsg = 'Full Name cannot be empty';
             } else if (userArgs.password !== userArgs.confirmedPassword) {
-                errorMsg = 'Passwords do nto match';
+                errorMsg = 'Passwords do not match';
             }
 
             if (errorMsg) {
                 userArgs.error = errorMsg;
-                res.render(`admin/user/edit/${id}`, userArgs);
+                res.render(`admin/user/edit/${id}`,userArgs);
             } else {
                 User.findById(id).then(user => {
                     if (userArgs.password) {
