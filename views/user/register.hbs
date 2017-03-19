@@ -32,6 +32,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-4 control-label">Profile picture</label>
+                    <div class="col-sm-4">
+                        <input type="file" id="avatar" class="form-control">
+                    </div>
+                </div>
+                <div hidden="hidden">
+                    <input id="b64" hidden="hidden" name="avatar" />
+                </div>
+                <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
                         <button type="reset" class="btn btn-default">Cancel</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -41,3 +50,24 @@
         </form>
     </div>
 </div>
+
+<script>
+    File.prototype.convertToBase64 = function(callback){
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            callback(e.target.result)
+        };
+        reader.onerror = function(e) {
+            callback(null);
+        };
+        reader.readAsDataURL(this);
+    };
+
+    $("#avatar").on('change',function(){
+        var selectedFile = this.files[0];
+        selectedFile.convertToBase64(function(base64){
+            $("#b64").val(base64);
+            console.log($("#b64").val());
+        })
+    });
+</script>

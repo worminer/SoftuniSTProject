@@ -94,6 +94,7 @@ module.exports = {
 
                         user.email = userArgs.email;
                         user.fullName = userArgs.fullName;
+                        user.avatar = userArgs.avatar;
                         user.save((err) => {
                             if (err) {
                                 res.redirect('/');

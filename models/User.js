@@ -7,6 +7,7 @@ let userSchema = mongoose.Schema(
         email: {type: String, required: true, unique: true},
         passwordHash: {type: String, required: true},
         fullName: {type: String, required: true},
+        avatar: {type: String, required: false},
         movies: {type: [mongoose.Schema.Types.ObjectId], ref: 'Movie'},
         roles: [{type: mongoose.Schema.Types.ObjectId, ref: 'Role'}],
         comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
@@ -99,7 +100,8 @@ module.exports.seedAdmin = () => {
                     comments: [],
                     movies: [],
                     salt: salt,
-                    roles: roles
+                    roles: roles,
+                    avatar: ''
                 };
 
                 User.create(user).then(user => {

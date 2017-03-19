@@ -33,6 +33,7 @@ module.exports = {
                     email: registerArgs.email,
                     passwordHash: passwordHash,
                     fullName: registerArgs.fullName,
+                    avatar: registerArgs.avatar,
                     salt: salt
                 };
 
@@ -52,8 +53,6 @@ module.exports = {
 
                             res.redirect('/')
                         })
-
-
                     })
                 });
             }
